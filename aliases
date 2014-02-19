@@ -1,0 +1,19 @@
+# Unix
+alias g="git"
+alias v="vim"
+alias z="zeus"
+alias gr="grep -rn"
+
+# Ruby on Rails
+alias b="bundle"
+alias bi="bundle install"
+alias be="bundle exec"
+alias rs="bundle exec rake spec"
+alias rc="bundle exec cucumber --format=pretty"
+alias pewpew="bundle exec rake db:migrate db:test:prepare"
+alias pewpewpew="bundle exec rake db:drop db:create db:migrate db:test:prepare"
+
+# Git
+alias grc="git add . && git rebase --continue"
+alias mergestg="git checkout development && git pull && git checkout staging && git pull && git merge development && git push"
+alias mergemaster="git checkout staging && git pull && git checkout master && git pull && git merge staging && git push" 
