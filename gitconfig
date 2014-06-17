@@ -29,7 +29,7 @@
 
 [alias]
   a = add
-  st = status
+  st = status -sb
   ci = commit
   ca = commit --amend
   br = branch
