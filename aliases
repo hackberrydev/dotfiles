@@ -4,6 +4,12 @@ alias v="vim"
 alias z="zeus"
 alias gr="grep -rn"
 
+# VirtualBox
+alias sem="ssh -Y semaphore"
+alias semvm="nohup VBoxHeadless -s semaphore >/dev/null 2>&1 &"
+alias play="ssh -Y playground"
+alias playvm="nohup VBoxHeadless -s playground >/dev/null 2>&1 &"
+
 # Ruby on Rails
 alias b="bundle"
 alias bi="bundle install"
