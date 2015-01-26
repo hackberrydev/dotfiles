@@ -5,6 +5,7 @@ here="$(dirname "$0")"
 here="$(cd "$here"; pwd)"
 
 curl -L http://install.ohmyz.sh | sh
+rm ~/.zshrc
 
 for file in "$here"/*; do
 name="$(basename "$file" .md)"
