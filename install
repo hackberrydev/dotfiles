@@ -4,9 +4,20 @@ set -e
 here="$(dirname "$0")"
 here="$(cd "$here"; pwd)"
 
+echo "Download package lists"
+sudo apt-get update -q -y 2>&1 >/dev/null
+
+echo "Install basic deps"
+sudo apt-get install -y git make vim zsh 2>&1 >/dev/null
+
+echo "Switch to zsh"
+chsh -s $(which zsh)
+
+echo "Install oh-my-zsh"
 curl -L http://install.ohmyz.sh | sh
 rm ~/.zshrc
 
+echo "Link dotfiles"
 for file in "$here"/*; do
 name="$(basename "$file" .md)"
   [[ $name = bin ]] && dotname="$name" || dotname=".${name}"
@@ -15,3 +26,13 @@ name="$(basename "$file" .md)"
     ln -sfv ${file#$HOME/} "${HOME}/${dotname}"
   fi
 done
+
+echo "Configure git"
+git config --global user.email "nebojsa.stricevic@gmail.com"
+git config --global user.name "Nebojša Stričević"
+git config --global push.default current
+ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+echo "Install vimfiles"
+git clone git@github.com:strika/vimfiles.git ~/.vim
+cd ~/.vim && rake
