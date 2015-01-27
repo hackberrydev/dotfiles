@@ -16,9 +16,6 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 echo "Switch to zsh"
 chsh -s $(which zsh)
 
-echo "Remove default zshrc"
-rm ~/.zshrc
-
 echo "Link dotfiles"
 for file in "$here"/*; do
 name="$(basename "$file" .md)"
