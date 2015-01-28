@@ -39,7 +39,4 @@ source $ZSH/oh-my-zsh.sh
 source ~/.aliases
 source ~/.zshenv
 
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
-
 stty stop ''

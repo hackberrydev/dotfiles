@@ -5,6 +5,7 @@ alias z="zeus"
 alias gr="grep -rn"
 
 # VirtualBox
+alias devbox="eval '$(ssh-agent -s)' && ssh-add ~/.ssh/id_rsa && cd ~/dev-box && vagrant up && vagrant ssh"
 alias sem="ssh -Y semaphore"
 alias semvm="nohup VBoxHeadless -s semaphore >/dev/null 2>&1 &"
 alias play="ssh -Y playground"
