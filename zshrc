@@ -35,6 +35,7 @@ plugins=(git compleat)
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin
 export TERM=screen-256color
 
+source /etc/profile
 source $ZSH/oh-my-zsh.sh
 source ~/.aliases
 source ~/.zshenv
