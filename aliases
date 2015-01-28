@@ -20,6 +20,7 @@ alias rc="bundle exec cucumber --format=pretty"
 alias pewpew="bundle exec rake db:migrate db:test:prepare"
 alias pewpewpew="bundle exec rake db:drop db:create db:migrate db:test:prepare"
 alias tl="tail -n 500 log/test.log"
+alias spring="./bin/spring"
 
 # Git
 alias grc="git add . && git rebase --continue"
