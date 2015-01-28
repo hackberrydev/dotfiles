@@ -26,12 +26,7 @@ name="$(basename "$file" .md)"
   fi
 done
 
-echo "Configure git"
-git config --global user.email "nebojsa.stricevic@gmail.com"
-git config --global user.name "Nebojša Stričević"
-git config --global push.default current
-ssh-keyscan github.com >> ~/.ssh/known_hosts
-
 echo "Install vimfiles"
+ssh-keyscan github.com >> ~/.ssh/known_hosts
 git clone git@github.com:strika/vimfiles.git ~/.vim
 cd ~/.vim && rake
