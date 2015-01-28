@@ -8,7 +8,7 @@ echo "Download package lists"
 sudo apt-get update -q -y 2>&1 >/dev/null
 
 echo "Install basic tools"
-sudo apt-get install -y git make vim zsh tmux 2>&1 >/dev/null
+sudo apt-get install -y git make vim zsh tmux ack-grep 2>&1 >/dev/null
 
 echo "Install oh-my-zsh"
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
