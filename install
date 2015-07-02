@@ -14,11 +14,15 @@ sudo apt-get update -q -y 2>&1 >/dev/null
 echo "Install basic tools"
 sudo apt-get install -y git make vim zsh tmux ack-grep exuberant-ctags 2>&1 >/dev/null
 
-echo "Install oh-my-zsh"
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+if [[ ! -d ~/.oh-my-zsh ]]; then
+  echo "Install oh-my-zsh"
+  git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+fi
 
-echo "Switch to zsh"
-chsh -s $(which zsh)
+if [[ $SHELL != "/bin/zsh" ]]; then
+  echo "Switch to zsh"
+  chsh -s $(which zsh)
+fi
 
 echo "Link dotfiles"
 for file in "$here"/*; do
@@ -30,7 +34,9 @@ name="$(basename "$file" .md)"
   fi
 done
 
-echo "Install vimfiles"
-ssh-keyscan github.com >> ~/.ssh/known_hosts
-git clone git@github.com:strika/vimfiles.git ~/.vim
-cd ~/.vim && rake
+if [[ ! -d ~/.vim ]]; then
+  echo "Install vimfiles"
+  ssh-keyscan github.com >> ~/.ssh/known_hosts
+  git clone git@github.com:strika/vimfiles.git ~/.vim
+  cd ~/.vim && rake
+fi
