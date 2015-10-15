@@ -32,7 +32,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git compleat)
 
 # Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:$HOME/.local/bin
 export TERM=screen-256color
 
 source /etc/profile
@@ -45,3 +45,6 @@ BASE16_SHELL=$HOME/.dotfiles/base16-shell/base16-mocha.dark.sh
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 stty stop ''
+
+export NVM_DIR="/home/vagrant/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
