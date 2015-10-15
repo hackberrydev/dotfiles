@@ -46,3 +46,4 @@
   last = describe --abbrev=0 --tags
   rpo = remote prune origin
   rso = remote show origin
+  purge = !git checkout master && git pull && git remote prune origin && git branch | grep -v "master" | xargs git branch -D
