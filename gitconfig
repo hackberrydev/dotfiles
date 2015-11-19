@@ -47,3 +47,4 @@
   rpo = remote prune origin
   rso = remote show origin
   purge = !git checkout master && git pull && git remote prune origin && git branch --merged | grep -v "master" | xargs git branch -D
+  report = !git for-each-ref --sort=committerdate --format='%(refname:short) * %(authorname) * %(committerdate:relative)' refs/remotes/ | column -t -s '*'.
