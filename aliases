@@ -3,6 +3,7 @@ alias g="git"
 alias v="vim"
 alias z="zeus"
 alias gr="grep -rn"
+alias wttr="curl http://wttr.in/novi_sad"
 
 # VirtualBox
 alias devbox="eval '$(ssh-agent -s)' && ssh-add ~/.ssh/id_rsa && cd ~/dev-box && vagrant up && vagrant ssh"
@@ -25,4 +26,4 @@ alias spring="./bin/spring"
 # Git
 alias grc="git add . && git rebase --continue"
 alias mergestg="git checkout development && git pull && git checkout staging && git pull && git merge development && git push"
-alias mergemaster="git checkout staging && git pull && git checkout master && git pull && git merge staging && git push" 
+alias mergemaster="git checkout staging && git pull && git checkout master && git pull && git merge staging && git push"
