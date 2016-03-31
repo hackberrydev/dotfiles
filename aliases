@@ -1,7 +1,6 @@
 # Unix
 alias g="git"
 alias v="vim"
-alias z="zeus"
 alias gr="grep -rn"
 alias wttr="curl http://wttr.in/novi_sad"
 
