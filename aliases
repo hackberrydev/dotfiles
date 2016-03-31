@@ -4,13 +4,6 @@ alias v="vim"
 alias gr="grep -rn"
 alias wttr="curl http://wttr.in/novi_sad"
 
-# VirtualBox
-alias devbox="eval '$(ssh-agent -s)' && ssh-add ~/.ssh/id_rsa && cd ~/dev-box && vagrant up && vagrant ssh"
-alias sem="ssh -Y semaphore"
-alias semvm="nohup VBoxHeadless -s semaphore >/dev/null 2>&1 &"
-alias play="ssh -Y playground"
-alias playvm="nohup VBoxHeadless -s playground >/dev/null 2>&1 &"
-
 # Ruby on Rails
 alias b="bundle"
 alias bi="bundle install"
