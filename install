@@ -12,7 +12,7 @@ echo "Download package lists"
 sudo apt-get update -q -y 2>&1 >/dev/null
 
 echo "Install basic tools"
-sudo apt-get install -y git make vim zsh tmux ack-grep exuberant-ctags 2>&1 >/dev/null
+sudo apt-get install -y git make vim zsh tmux ack-grep exuberant-ctags tree 2>&1 >/dev/null
 
 if [[ ! -d ~/.oh-my-zsh ]]; then
   echo "Install oh-my-zsh"
