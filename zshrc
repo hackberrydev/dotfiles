@@ -36,6 +36,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/ga
 export TERM=screen-256color
 
 source /etc/profile
+source ~/.profile
 source $ZSH/oh-my-zsh.sh
 source ~/.aliases
 source ~/.zshenv
