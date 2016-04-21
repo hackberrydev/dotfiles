@@ -54,5 +54,5 @@ if [[ ! -d ~/.config/nvim ]]; then
   echo "Install neovimfiles"
   ssh-keyscan github.com >> ~/.ssh/known_hosts
   git clone git@github.com:strika/neovimfiles.git ~/.config/nvim
-  cd ~/.config/nvim && install
+  cd ~/.config/nvim && ./install
 fi
