@@ -51,8 +51,8 @@ name="$(basename "$file" .md)"
 done
 
 if [[ ! -d ~/.config/nvim ]]; then
-  echo "Install nvimfiles"
+  echo "Install neovimfiles"
   ssh-keyscan github.com >> ~/.ssh/known_hosts
-  git clone git@github.com:strika/nvimfiles.git ~/.config/nvim
+  git clone git@github.com:strika/neovimfiles.git ~/.config/nvim
   cd ~/.config/nvim && install
 fi
