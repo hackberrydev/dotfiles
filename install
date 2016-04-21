@@ -4,6 +4,8 @@ set -e
 here="$(dirname "$0")"
 here="$(cd "$here"; pwd)"
 
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+
 echo "Installing submodules"
 git submodule init
 git submodule update
