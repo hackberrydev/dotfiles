@@ -40,6 +40,9 @@ if [[ $SHELL != "/bin/zsh" ]]; then
   chsh -s $(which zsh)
 fi
 
+echo "Create local files"
+touch ~/.aliases_local
+
 echo "Link dotfiles"
 for file in "$here"/*; do
 name="$(basename "$file" .md)"

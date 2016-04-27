@@ -39,6 +39,7 @@ source /etc/profile
 source ~/.profile
 source $ZSH/oh-my-zsh.sh
 source ~/.aliases
+source ~/.aliases_local
 source ~/.zshenv
 
 # Base16 Shell
