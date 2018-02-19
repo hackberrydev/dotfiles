@@ -1,16 +1,13 @@
 # Unix
 alias g="git"
 alias v="nvim"
-alias o="otto"
 alias gr="grep -rn"
 alias wttr="curl http://wttr.in/novi_sad"
 
 # Ruby on Rails
 alias b="bundle"
-alias bi="bundle install"
 alias be="bundle exec"
 alias rs="bundle exec rake spec"
-alias rc="bundle exec cucumber --format=pretty"
 alias pewpew="bundle exec rake db:migrate db:test:prepare"
 alias pewpewpew="bundle exec rake db:drop db:create db:migrate db:test:prepare"
 alias tl="tail -n 500 log/test.log"
@@ -18,5 +15,3 @@ alias spring="./bin/spring"
 
 # Git
 alias grc="git add . && git rebase --continue"
-alias mergestg="git checkout development && git pull && git checkout staging && git pull && git merge development && git push"
-alias mergemaster="git checkout staging && git pull && git checkout master && git pull && git merge staging && git push"
