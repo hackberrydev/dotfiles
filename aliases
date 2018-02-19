@@ -7,9 +7,9 @@ alias wttr="curl http://wttr.in/novi_sad"
 # Ruby on Rails
 alias b="bundle"
 alias be="bundle exec"
-alias rs="bundle exec rake spec"
-alias pewpew="bundle exec rake db:migrate db:test:prepare"
-alias pewpewpew="bundle exec rake db:drop db:create db:migrate db:test:prepare"
+alias rs="bin/rails spec"
+alias pewpew="bin/rails db:migrate db:test:prepare"
+alias pewpewpew="bin/rails db:drop db:create db:migrate db:test:prepare"
 alias tl="tail -n 500 log/test.log"
 alias spring="./bin/spring"
 
