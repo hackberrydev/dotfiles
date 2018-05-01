@@ -42,6 +42,7 @@
   ps = push
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  lbranch = log --graph --simplify-by-decoration --pretty=format:'%C(yellow)%h%C(white)%d %C(bold black)%ar %C(reset)%n' --all
   ls = ls-files
   last = describe --abbrev=0 --tags
   rpo = remote prune origin
