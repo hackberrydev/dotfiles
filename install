@@ -30,6 +30,11 @@ sudo update-alternatives --config vim
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 sudo update-alternatives --config editor
 
+echo "Install rbenv"
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+mkdir -p "$(rbenv root)"/plugins
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+
 if [[ ! -d ~/.oh-my-zsh ]]; then
   echo "Install oh-my-zsh"
   git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh

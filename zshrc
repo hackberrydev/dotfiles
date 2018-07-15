@@ -39,3 +39,5 @@ source ~/.aliases_local
 source ~/.zshenv
 
 stty stop ''
+
+eval "$(rbenv init -)"
