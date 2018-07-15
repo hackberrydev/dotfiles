@@ -31,10 +31,6 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(command-not-found compleat dirhistory ssh-agent)
 
-# Customize to your needs...
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/bin:$HOME/.local/bin
-export TERM=screen-256color
-
 source /etc/profile
 source ~/.profile
 source $ZSH/oh-my-zsh.sh
@@ -43,6 +39,3 @@ source ~/.aliases_local
 source ~/.zshenv
 
 stty stop ''
-
-export NVM_DIR="/home/vagrant/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
