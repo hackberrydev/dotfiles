@@ -51,6 +51,12 @@ if [[ $SHELL != "/bin/zsh" ]]; then
   chsh -s $(which zsh)
 fi
 
+echo "Create .local/bin"
+mkdir -p .local/bin
+
+echo "Copy bin to .local/bin"
+cp bin/* .local/bin
+
 echo "Create local files"
 touch ~/.aliases_local
 
