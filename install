@@ -31,6 +31,11 @@ sudo update-alternatives --config vim
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 sudo update-alternatives --config editor
 
+echo "Install bat"
+wget https://github.com/sharkdp/bat/releases/download/v0.5.0/bat_0.5.0_amd64.deb
+sudo dpkg --install bat_0.5.0_amd64.deb
+rm bat_0.5.0_amd64.deb
+
 echo "Install rbenv"
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 mkdir -p "$(rbenv root)"/plugins
