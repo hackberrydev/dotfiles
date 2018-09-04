@@ -32,6 +32,7 @@
   st = status -sb
   ci = commit
   ca = commit --amend
+  fix = commit -am 'fix'
   br = branch
   co = checkout
   df = diff
