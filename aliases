@@ -8,6 +8,7 @@ alias wttr="curl http://wttr.in/novi_sad"
 # Tools
 alias cat="bat"
 alias ping="prettyping"
+alias du="ncdu -rr -x --exclude .git --exclude node_modules"
 
 # Ruby on Rails
 alias b="bundle"
