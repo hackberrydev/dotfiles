@@ -57,7 +57,7 @@ for file in "$here"/*; do
 name="$(basename "$file" .md)"
   [[ $name = bin ]] && dotname="$name" || dotname=".${name}"
 
-  if [[ !( "install README" =~ $name || -e ~/$dotname || -d $file/.git ) ]]; then
+  if [[ !( "install install_osx README" =~ $name || -e ~/$dotname || -d $file/.git ) ]]; then
     ln -sfv ${file#$HOME/} "${HOME}/${dotname}"
   fi
 done
