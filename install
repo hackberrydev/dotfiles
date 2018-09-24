@@ -63,13 +63,11 @@ if [[ ! -d ~/.config/nvim ]]; then
   cd ~/.config/nvim && ./install
 fi
 
-if [[ ! -d ~/.config/fish ]]; then
-  echo "Install fishfiles"
-  mkdir ~/.config/fish
-  for file in "$here"/fishfiles/*; do
-    ln -sfv ${file#$HOME/} "${HOME}/.config/fish/${file}"
-  done
-fi
+echo "Install fishfiles"
+mkdir -p ~/.config/fish
+for file in "$here"/fishfiles/*; do
+  ln -sfv ${file#$HOME/} "${HOME}/.config/fish/${file}"
+done
 
 if [[ ! -d ~/.rbenv ]]; then
   echo "Install rbenv"
