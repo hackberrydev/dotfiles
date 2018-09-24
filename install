@@ -40,8 +40,8 @@ rm bat_0.5.0_amd64.deb
 
 echo "Install rbenv"
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-mkdir -p "$(rbenv root)"/plugins
-git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+~/.rbenv/bin/rbenv init
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 echo "Create .local/bin"
 mkdir -p .local/bin
