@@ -37,11 +37,6 @@ wget https://github.com/sharkdp/bat/releases/download/v0.5.0/bat_0.5.0_amd64.deb
 sudo dpkg --install bat_0.5.0_amd64.deb
 rm bat_0.5.0_amd64.deb
 
-echo "Install rbenv"
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-~/.rbenv/bin/rbenv init
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-
 echo "Create .local/bin"
 mkdir -p .local/bin
 
@@ -74,6 +69,13 @@ if [[ ! -d ~/.config/fish ]]; then
   for file in "$here"/fishfiles/*; do
     ln -sfv ${file#$HOME/} "${HOME}/.config/fish/${file}"
   done
+fi
+
+if [[ ! -d ~/.rbenv ]]; then
+  echo "Install rbenv"
+  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+  ~/.rbenv/bin/rbenv init
+  git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 fi
 
 chsh -s $(which fish)
