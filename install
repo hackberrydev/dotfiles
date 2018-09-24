@@ -16,6 +16,7 @@ sudo apt-get update -q -y 2>&1 >/dev/null
 echo "Install basic tools"
 sudo apt-get install -y git make tmux ack-grep exuberant-ctags tree \
   build-essential libssl-dev libreadline-dev zlib1g-dev htop ncdu \
+  fish \
   2>&1 >/dev/null
 
 echo "Install Neovim"
@@ -68,3 +69,13 @@ if [[ ! -d ~/.config/nvim ]]; then
   git clone git@github.com:strika/neovimfiles.git ~/.config/nvim
   cd ~/.config/nvim && ./install
 fi
+
+if [[ ! -d ~/.config/fish ]]; then
+  echo "Install fishfiles"
+  mkdir ~/.config/fish
+  for file in "$here"/fishfiles/*; do
+    ln -sfv ${file#$HOME/} "${HOME}/.config/fish/${file}"
+  done
+fi
+
+chsh -s $(which fish)
