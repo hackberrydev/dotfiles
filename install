@@ -66,7 +66,8 @@ fi
 echo "Install fishfiles"
 mkdir -p ~/.config/fish
 for file in "$here"/fishfiles/*; do
-  ln -sfv ${file#$HOME/} "${HOME}/.config/fish/${file}"
+  name="$(basename "$file")"
+  ln -sfv ${file#$HOME/} "${HOME}/.config/fish/${name}"
 done
 
 if [[ ! -d ~/.rbenv ]]; then
