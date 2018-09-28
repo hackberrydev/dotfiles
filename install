@@ -55,20 +55,20 @@ setup_fish() {
 }
 
 install_neovim() {
-  echo "Install Neovim"
-  sudo apt-get install software-properties-common
-  sudo add-apt-repository ppa:neovim-ppa/unstable
-  sudo apt-get install -y neovim
-
-  echo "Use Neovim instead of vi and Vim"
-  sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-  sudo update-alternatives --config vi
-  sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-  sudo update-alternatives --config vim
-  sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-  sudo update-alternatives --config editor
-
   if [[ ! -d ~/.config/nvim ]]; then
+    echo "Install Neovim"
+    sudo apt-get install software-properties-common
+    sudo add-apt-repository ppa:neovim-ppa/unstable
+    sudo apt-get install -y neovim
+
+    echo "Use Neovim instead of vi and Vim"
+    sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+    sudo update-alternatives --config vi
+    sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+    sudo update-alternatives --config vim
+    sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+    sudo update-alternatives --config editor
+
     echo "Install neovimfiles"
     git clone https://github.com/strika/neovimfiles.git ~/.config/nvim
     cd ~/.config/nvim && ./install
@@ -103,7 +103,7 @@ do_all() {
   install_local_bin
   link_dotfiles
   # setup_fish
-  # install_neovim
+  install_neovim
   # install_bat
   # install_fzf
   # install_rbenv
