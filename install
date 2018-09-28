@@ -6,75 +6,107 @@ here="$(cd "$here"; pwd)"
 
 mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 
-echo "Installing submodules"
-git submodule init
-git submodule update
+install_submodules() {
+  echo "Installing submodules"
+  git submodule init
+  git submodule update
+}
 
-echo "Download package lists"
-sudo apt-get update -q -y 2>&1 >/dev/null
+install_basic_packages() {
+  echo "Download package lists"
+  sudo apt-get update -q -y 2>&1 >/dev/null
 
-echo "Install basic tools"
-sudo apt-get install -y git make tmux ack-grep exuberant-ctags tree \
-  build-essential libssl-dev libreadline-dev zlib1g-dev htop ncdu \
-  fish \
-  2>&1 >/dev/null
+  echo "Install basic tools"
+  sudo apt-get install -y git make tmux ack-grep exuberant-ctags tree \
+    build-essential libssl-dev libreadline-dev zlib1g-dev htop ncdu \
+    fish \
+    2>&1 >/dev/null
+}
 
-echo "Install Neovim"
-sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo apt-get install -y neovim
+install_local_bin() {
+  echo "Create .local/bin"
+  mkdir -p .local/bin
 
-echo "Use Neovim instead of vi and Vim"
-sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-sudo update-alternatives --config vi
-sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-sudo update-alternatives --config vim
-sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-sudo update-alternatives --config editor
+  echo "Copy bin to .local/bin"
+  cp bin/* .local/bin
+}
 
-echo "Install bat"
-wget https://github.com/sharkdp/bat/releases/download/v0.5.0/bat_0.5.0_amd64.deb
-sudo dpkg --install bat_0.5.0_amd64.deb
-rm bat_0.5.0_amd64.deb
+link_dotfiles() {
+  echo "Link dotfiles"
+  for file in "$here"/*; do
+  name="$(basename "$file" .md)"
+    [[ $name = bin ]] && dotname="$name" || dotname=".${name}"
 
-echo "Create .local/bin"
-mkdir -p .local/bin
+    if [[ !( "install install_osx README" =~ $name || -e ~/$dotname || -d $file/.git ) ]]; then
+      ln -sfv ${file#$HOME/} "${HOME}/${dotname}"
+    fi
+  done
+}
 
-echo "Copy bin to .local/bin"
-cp bin/* .local/bin
+setup_fish() {
+  echo "Install fishfiles"
+  mkdir -p ~/.config/fish
+  for file in "$here"/fishfiles/*; do
+    name="$(basename "$file")"
+    ln -sfv ${file#$HOME/} "${HOME}/.config/fish/${name}"
+  done
 
-echo "Install FZF"
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+  chsh -s $(which fish)
+}
 
-echo "Link dotfiles"
-for file in "$here"/*; do
-name="$(basename "$file" .md)"
-  [[ $name = bin ]] && dotname="$name" || dotname=".${name}"
+install_neovim() {
+  echo "Install Neovim"
+  sudo apt-get install software-properties-common
+  sudo add-apt-repository ppa:neovim-ppa/unstable
+  sudo apt-get install -y neovim
 
-  if [[ !( "install install_osx README" =~ $name || -e ~/$dotname || -d $file/.git ) ]]; then
-    ln -sfv ${file#$HOME/} "${HOME}/${dotname}"
+  echo "Use Neovim instead of vi and Vim"
+  sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+  sudo update-alternatives --config vi
+  sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+  sudo update-alternatives --config vim
+  sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+  sudo update-alternatives --config editor
+
+  if [[ ! -d ~/.config/nvim ]]; then
+    echo "Install neovimfiles"
+    git clone https://github.com/strika/neovimfiles.git ~/.config/nvim
+    cd ~/.config/nvim && ./install
   fi
-done
+}
 
-if [[ ! -d ~/.config/nvim ]]; then
-  echo "Install neovimfiles"
-  git clone https://github.com/strika/neovimfiles.git ~/.config/nvim
-  cd ~/.config/nvim && ./install
-fi
+install_bat() {
+  echo "Install bat"
+  wget https://github.com/sharkdp/bat/releases/download/v0.5.0/bat_0.5.0_amd64.deb
+  sudo dpkg --install bat_0.5.0_amd64.deb
+  rm bat_0.5.0_amd64.deb
+}
 
-echo "Install fishfiles"
-mkdir -p ~/.config/fish
-for file in "$here"/fishfiles/*; do
-  name="$(basename "$file")"
-  ln -sfv ${file#$HOME/} "${HOME}/.config/fish/${name}"
-done
+install_fzf() {
+  echo "Install FZF"
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+}
 
-if [[ ! -d ~/.rbenv ]]; then
-  echo "Install rbenv"
-  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-  ~/.rbenv/bin/rbenv init
-  git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-fi
+install_rbenv() {
+  if [[ ! -d ~/.rbenv ]]; then
+    echo "Install rbenv"
+    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+    ~/.rbenv/bin/rbenv init
+    git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+  fi
+}
 
-chsh -s $(which fish)
+do_all() {
+  install_submodules
+  install_basic_packages
+  install_local_bin
+  link_dotfiles
+  # setup_fish
+  # install_neovim
+  # install_bat
+  # install_fzf
+  # install_rbenv
+}
+
+do_all
