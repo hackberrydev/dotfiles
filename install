@@ -56,6 +56,7 @@ setup_fish() {
 
 install_neovim() {
   nvim_directory="${HOME}/.config/nvim"
+
   if [[ ! -d $nvim_directory ]]; then
     echo "Install Neovim"
     sudo apt-get install software-properties-common
@@ -84,10 +85,12 @@ install_bat() {
 }
 
 install_fzf() {
-  if [[ ! -d ~/.fzf ]]; then
+  fzf_directory="${HOME}/.fzf"
+
+  if [[ ! -d $fzf_directory ]]; then
     echo "Install FZF"
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
+    git clone --depth 1 https://github.com/junegunn/fzf.git "$fzf_directory"
+    cd "$fzf_directory" && ./install
   fi
 }
 
