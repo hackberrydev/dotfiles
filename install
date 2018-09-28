@@ -55,7 +55,8 @@ setup_fish() {
 }
 
 install_neovim() {
-  if [[ ! -d ~/.config/nvim ]]; then
+  nvim_directory="${HOME}/.config/nvim"
+  if [[ ! -d $nvim_directory ]]; then
     echo "Install Neovim"
     sudo apt-get install software-properties-common
     sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -70,8 +71,8 @@ install_neovim() {
     sudo update-alternatives --config editor
 
     echo "Install neovimfiles"
-    git clone https://github.com/strika/neovimfiles.git ~/.config/nvim
-    cd ~/.config/nvim && ./install
+    git clone https://github.com/strika/neovimfiles.git "$nvim_directory"
+    cd "$nvim_directory" && ./install
   fi
 }
 
