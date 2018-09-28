@@ -38,13 +38,11 @@ install_local_bin() {
 link_dotfiles() {
   echo "Link dotfiles"
 
-  for file in "$here"/*; do
-    name="$(basename "$file" .md)"
-    [[ $name = bin ]] && dotname="$name" || dotname=".${name}"
+  dotfiles=(gitconfig rdebugrc rspec tmux.conf)
 
-    if [[ !( "install install_osx README" =~ $name || -e ~/$dotname || -d $file/.git ) ]]; then
-      ln -sfv ${file#$HOME/} "${HOME}/${dotname}"
-    fi
+  for file in "${dotfiles[@]}"; do
+    dotname=".${file}"
+    ln -sfv "${here}/${file}" "${HOME}/${dotname}"
   done
 }
 
