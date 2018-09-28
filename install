@@ -24,15 +24,7 @@ install_basic_packages() {
 }
 
 install_local_bin() {
-  local_bin="${HOME}/.local/bin"
-
-  if [[ ! -d $local_bin ]]; then
-    echo "Create .local/bin"
-    mkdir -p "$local_bin"
-
-    echo "Copy bin to .local/bin"
-    cp bin/* "$local_bin"
-  fi
+  ln -sfv "${here}/bin" "${HOME}/.local/bin"
 }
 
 link_dotfiles() {
