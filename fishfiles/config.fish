@@ -28,6 +28,15 @@ function grc
   git add .; and git rebase --continue;
 end
 
+function vbox
+  switch (count $argv)
+  case 0
+    ssh vbox
+  case 1
+    VBoxHeadless --startvm $argv[1] &
+  end
+end
+
 # Ruby on Rails Aliases
 function b
   bundle $argv;
