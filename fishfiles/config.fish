@@ -33,6 +33,7 @@ function vbox
   case 0
     ssh vbox
   case 1
+    ssh-add
     VBoxHeadless --startvm $argv[1] &
   end
 end
