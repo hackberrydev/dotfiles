@@ -24,7 +24,7 @@ install_basic_packages() {
 }
 
 install_local_bin() {
-  mkdir "${HOME}/.local/bin"
+  mkdir -p "${HOME}/.local/bin"
   ln -sfv "${here}/bin" "${HOME}/.local/bin"
 }
 
