@@ -31,7 +31,7 @@ end
 function vbox
   switch (count $argv)
   case 0
-    ssh -p 2222 -o ForwardX11=yes -o ForwardX11Trused=yes -o ForwardAgent=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/def/null strika@localhost
+    ssh -p 2222 -o ForwardX11=yes -o ForwardX11Trusted=yes -o ForwardAgent=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/def/null strika@localhost
   case 1
     ssh-add
     VBoxHeadless --startvm $argv[1] &
