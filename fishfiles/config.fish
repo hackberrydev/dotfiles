@@ -20,10 +20,6 @@ function gr
   grep -rn $argv;
 end
 
-function cat
-  bat $argv;
-end
-
 function grc
   git add .; and git rebase --continue;
 end
