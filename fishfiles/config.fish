@@ -65,3 +65,8 @@ end
 # Rbenv
 set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
 status --is-interactive; and source (rbenv init -|psub)
+
+# SSH Agent
+if set -q SSH_CONNECTION; and not ssh-add -l > /dev/null
+  ssh-add
+end
