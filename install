@@ -100,6 +100,7 @@ install_rbenv() {
     echo "Install rbenv"
     git clone https://github.com/rbenv/rbenv.git ~/.rbenv
     ~/.rbenv/bin/rbenv init
+    mkdir -p "$(rbenv root)"/plugins
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
   fi
 }
