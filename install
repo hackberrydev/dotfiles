@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e
 
 here="$(dirname "$0")"
 here="$(cd "$here"; pwd)"
