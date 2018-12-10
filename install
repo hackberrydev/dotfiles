@@ -18,7 +18,7 @@ install_basic_packages() {
   echo "Install basic tools"
   sudo apt-get install -y git make tmux ack-grep exuberant-ctags tree \
     build-essential libssl-dev libreadline-dev zlib1g-dev htop ncdu \
-    fish \
+    fish neovim \
     2>&1 >/dev/null
 }
 
@@ -58,11 +58,6 @@ install_neovim() {
   nvim_directory="${HOME}/.config/nvim"
 
   if [[ ! -d $nvim_directory ]]; then
-    echo "Install Neovim"
-    sudo apt-get install software-properties-common
-    sudo add-apt-repository ppa:neovim-ppa/unstable
-    sudo apt-get install -y neovim
-
     echo "Use Neovim instead of vi and Vim"
     sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
     sudo update-alternatives --config vi
