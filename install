@@ -91,7 +91,7 @@ install_fzf() {
   if [[ ! -d $fzf_directory ]]; then
     echo "Install FZF"
     git clone --depth 1 https://github.com/junegunn/fzf.git "$fzf_directory"
-    cd "$fzf_directory" && ./install
+    cd "$fzf_directory" && ./install --all --no-bash --no-zsh
   fi
 }
 
