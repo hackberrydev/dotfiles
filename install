@@ -58,11 +58,7 @@ install_neovim() {
   nvim_directory="${HOME}/.config/nvim"
 
   if [[ ! -d $nvim_directory ]]; then
-    echo "Use Neovim instead of vi and Vim"
-    sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-    sudo update-alternatives --config vi
-    sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-    sudo update-alternatives --config vim
+    echo "Set editor to Neovim"
     sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
     sudo update-alternatives --config editor
 
