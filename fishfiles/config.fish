@@ -1,5 +1,10 @@
 set PATH ~/.local/bin $PATH
 
+# Plugins
+fundle plugin "strika/catfish-pine"
+
+fundle init
+
 # Remove the default Fish greeting
 set fish_greeting
 
