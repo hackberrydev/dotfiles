@@ -49,9 +49,6 @@ setup_fish() {
     name="$(basename "$file")"
     ln -sfv "$file" "${HOME}/.config/fish/${name}"
   done
-
-  echo "Install Fisher"
-  curl -Lo "${HOME}/.config/fish/functions/fisher.fish" --create-dirs https://git.io/fisher
 }
 
 install_neovim() {
@@ -110,4 +107,3 @@ do_all() {
 do_all
 
 echo 'Change your shell with chsh -s $(which fish)'
-echo "And install Fish plugins by running fisher"
