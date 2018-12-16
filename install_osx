@@ -1,9 +1,0 @@
-#!/bin/bash
-
-echo "Installing Homebrew..."
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-echo "Done."
-
-echo "Installing Spectacle..."
-brew cask install spectacle
-echo "Done."
