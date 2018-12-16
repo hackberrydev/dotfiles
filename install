@@ -49,6 +49,9 @@ setup_fish() {
     name="$(basename "$file")"
     ln -sfv "$file" "${HOME}/.config/fish/${name}"
   done
+
+  mkdir -p ~/.config/fish/functions
+  wget https://git.io/fundle -O ~/.config/fish/functions/fundle.fish
 }
 
 install_neovim() {
