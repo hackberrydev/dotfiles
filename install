@@ -101,9 +101,9 @@ do_all() {
   install_local_bin
   link_dotfiles
   setup_fish
+  install_fzf
   install_neovim
   install_bat
-  install_fzf
   install_rbenv
 }
 
