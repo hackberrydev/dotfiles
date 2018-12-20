@@ -27,6 +27,10 @@ function grc
   git add .; and git rebase --continue;
 end
 
+function grm
+  git rebase -i master;
+end
+
 function vbox
   switch (count $argv)
   case 0
