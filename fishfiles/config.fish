@@ -1,3 +1,5 @@
+set PATH ~/.local/bin $PATH
+
 # Plugins
 fundle plugin "strika/catfish-pine"
 
