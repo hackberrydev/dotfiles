@@ -56,7 +56,7 @@ function spring
 end
 
 function import_db
-  bin/rake db:drop db:create; and mysql aligni_development -u root -p < ~/aligni-db/latest; and bin/rake db:migrate db:test:prepare
+  bin/rake db:drop db:create; and mysql aligni_development -u developer -p < ~/aligni-db/latest; and bin/rake db:migrate db:test:prepare
 end
 
 function pewpew
