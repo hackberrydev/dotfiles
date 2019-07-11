@@ -9,6 +9,10 @@ fundle init
 set fish_greeting
 
 # Aliases
+function diskusage
+  du -h -d1 2> /dev/null | sort -h;
+end
+
 function g --wraps git
   git $argv;
 end
