@@ -13,16 +13,9 @@ function diskusage
   du -h -d1 2> /dev/null | sort -h;
 end
 
+# git
 function g --wraps git
   git $argv;
-end
-
-function v
-  nvim $argv;
-end
-
-function vim
-  nvim $argv;
 end
 
 function gr
@@ -35,6 +28,19 @@ end
 
 function grm
   git rebase -i master;
+end
+
+function gpsf
+  git push -f;
+end
+
+# vim
+function v
+  nvim $argv;
+end
+
+function vim
+  nvim $argv;
 end
 
 function vbox
