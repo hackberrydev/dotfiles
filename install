@@ -103,7 +103,6 @@ install_rbenv() {
     ~/.rbenv/bin/rbenv init
     mkdir -p ~/.rbenv/plugins
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-    set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths
   fi
 }
 
@@ -122,3 +121,5 @@ do_all() {
 do_all
 
 echo 'Change your shell with chsh -s $(which fish)'
+echo 'Then setup rbenv with'
+echo 'set -Ux fish_user_paths $HOME/.rbenv/bin $fish_user_paths'
