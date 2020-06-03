@@ -107,10 +107,6 @@ install_rbenv() {
   fi
 }
 
-install_ruby_tools() {
-   gem install rubocop --no-ri ---no-rdoc
-}
-
 do_all() {
   install_submodules
   install_basic_packages
@@ -121,7 +117,6 @@ do_all() {
   install_neovim
   install_bat
   install_rbenv
-  install_ruby_tools
 }
 
 do_all
