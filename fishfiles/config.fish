@@ -85,3 +85,6 @@ end
 if set -q SSH_CONNECTION; and not ssh-add -l > /dev/null
   ssh-add
 end
+
+# Rbenv
+status --is-interactive; and rbenv init - | source
