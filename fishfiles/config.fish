@@ -13,6 +13,10 @@ function diskusage
   du -h -d1 2> /dev/null | sort -h;
 end
 
+function t
+  vim ~/vimwiki/Tasks.md;
+end
+
 # git
 function g --wraps git
   git $argv;
