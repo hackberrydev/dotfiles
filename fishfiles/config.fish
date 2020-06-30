@@ -14,7 +14,7 @@ function diskusage
 end
 
 function t
-  vim ~/vimwiki/Tasks.md;
+  cd ~/vimwiki; vim Tasks.md;
 end
 
 # git
