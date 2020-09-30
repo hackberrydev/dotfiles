@@ -11,47 +11,20 @@ fundle init
 set fish_greeting
 
 # Aliases
-function diskusage
-  du -h -d1 2> /dev/null | sort -h;
-end
-
-function t
-  cd ~/vimwiki; vim Tasks.md;
-end
-
-function play
-  mplayer -subcp cp1250 $argv;
-end
+alias diskusage="du -h -d1 2> /dev/null | sort -h"
+alias t="cd ~/vimwiki; vim Tasks.md"
+alias play="mplayer -subcp cp1250"
 
 # git
-function g --wraps git
-  git $argv;
-end
-
-function gr
-  grep -rn $argv;
-end
-
-function grc
-  git add .; and git rebase --continue;
-end
-
-function grm
-  git rebase -i master;
-end
-
-function gpsf
-  git push -f;
-end
+alias g --wraps git="git"
+alias gr="grep -rn"
+alias grc="git add .; and git rebase --continue"
+alias grm="git rebase -i master"
+alias gpsf="git push -f"
 
 # vim
-function v
-  nvim $argv;
-end
-
-function vim
-  nvim $argv;
-end
+alias v="nvim"
+alias vim="nvim"
 
 function vbox
   switch (count $argv)
@@ -63,33 +36,13 @@ function vbox
 end
 
 # Ruby on Rails Aliases
-function b
-  bundle $argv;
-end
-
-function pewpew
-  bin/rails db:migrate db:test:prepare;
-end
-
-function spring
-  ./bin/spring;
-end
-
-function import_db
-  bin/rake db:drop db:create; and mysql aligni_development -u developer -p < ~/aligni-db/latest; and bin/rake db:migrate db:test:prepare
-end
-
-function pewpew
-  bundle exec rake db:migrate db:test:prepare
-end
-
-function console
-  bin/rails console
-end
-
-function srv
-  bin/rails server -b 0.0.0.0
-end
+alias b="bundle"
+alias pewpew="bin/rails db:migrate db:test:prepare"
+alias spring="./bin/spring"
+alias import_db="bin/rake db:drop db:create; and mysql aligni_development -u developer -p < ~/aligni-db/latest; and bin/rake db:migrate db:test:prepar"
+alias pewpew="bundle exec rake db:migrate db:test:prepar"
+alias console="bin/rails consol"
+alias srv="bin/rails server -b 0.0.0."
 
 # SSH Agent
 if set -q SSH_CONNECTION; and not ssh-add -l > /dev/null
