@@ -1,5 +1,7 @@
 set PATH ~/.local/bin $PATH
 
+fish_vi_key_bindings
+
 # Plugins
 fundle plugin "strika/catfish-pine"
 
@@ -15,6 +17,10 @@ end
 
 function t
   cd ~/vimwiki; vim Tasks.md;
+end
+
+function play
+  mplayer -subcp cp1250 $argv;
 end
 
 # git
