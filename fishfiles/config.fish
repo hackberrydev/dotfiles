@@ -15,16 +15,25 @@ alias diskusage="du -h -d1 2> /dev/null | sort -h"
 alias t="cd ~/vimwiki; vim Tasks.md"
 alias play="mplayer -subcp cp1250"
 
-# git
+# Git aliases
 alias g="git"
 alias gr="grep -rn"
 alias grc="git add .; and git rebase --continue"
 alias grm="git rebase -i master"
 alias gpsf="git push -f"
 
-# vim
+# Vim aliases
 alias v="nvim"
 alias vim="nvim"
+
+# Ruby on Rails aliases
+alias b="bundle"
+alias pewpew="bin/rails db:migrate db:test:prepare"
+alias spring="./bin/spring"
+alias import_db="bin/rake db:drop db:create; and mysql aligni_development -u developer -p < ~/aligni-db/latest; and bin/rake db:migrate db:test:prepare"
+alias pewpew="bundle exec rake db:migrate db:test:prepare"
+alias console="bin/rails console"
+alias srv="bin/rails server -b 0.0.0.0"
 
 function vbox
   switch (count $argv)
@@ -34,15 +43,6 @@ function vbox
     VBoxHeadless --startvm $argv[1] &
   end
 end
-
-# Ruby on Rails Aliases
-alias b="bundle"
-alias pewpew="bin/rails db:migrate db:test:prepare"
-alias spring="./bin/spring"
-alias import_db="bin/rake db:drop db:create; and mysql aligni_development -u developer -p < ~/aligni-db/latest; and bin/rake db:migrate db:test:prepar"
-alias pewpew="bundle exec rake db:migrate db:test:prepar"
-alias console="bin/rails consol"
-alias srv="bin/rails server -b 0.0.0."
 
 # SSH Agent
 if set -q SSH_CONNECTION; and not ssh-add -l > /dev/null
