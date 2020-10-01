@@ -16,7 +16,7 @@ alias t="cd ~/vimwiki; vim Tasks.md"
 alias play="mplayer -subcp cp1250"
 
 # git
-alias g --wraps git="git"
+alias g="git"
 alias gr="grep -rn"
 alias grc="git add .; and git rebase --continue"
 alias grm="git rebase -i master"
