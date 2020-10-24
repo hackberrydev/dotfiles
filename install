@@ -23,7 +23,7 @@ install_basic_packages() {
   echo "Install basic tools"
   sudo apt-get install -y git make tmux ack-grep exuberant-ctags tree \
     build-essential libssl-dev libreadline-dev zlib1g-dev htop ncdu \
-    fish neovim httpie \
+    fish neovim kitty httpie \
     2>&1 >/dev/null
 }
 
@@ -44,6 +44,19 @@ link_dotfiles() {
   for file in "${dotfiles[@]}"; do
     dotname=".${file}"
     ln -sfv "${here}/${file}" "${HOME}/${dotname}"
+  done
+}
+
+setup_kitty() {
+  kitty_config_dir="${HOME}/.config/kitty"
+
+  echo "Install kittyfiles"
+
+  mkdir -p "$kitty_config_dir"
+
+  for file in "${here}/kittyfiles"/*; do
+    name="$(basename "$file")"
+    ln -sfv "$file" "${kitty_config_dir}/${name}"
   done
 }
 
@@ -111,6 +124,7 @@ do_all() {
   install_basic_packages
   install_local_bin
   link_dotfiles
+  setup_kitty
   setup_fish
   install_fzf
   install_neovim
