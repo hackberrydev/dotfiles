@@ -4,6 +4,8 @@ fish_vi_key_bindings
 
 # Plugins
 fundle plugin "strika/catfish-pine"
+fundle plugin "FabioAntunes/fish-nvm"
+fundle plugin "edc/bass"
 
 fundle init
 
