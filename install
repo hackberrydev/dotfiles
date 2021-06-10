@@ -12,10 +12,7 @@ install_submodules() {
 }
 
 install_basic_packages() {
-  if [[ `lsb_release -rs` == "16.04" ]]; then
-    sudo apt-add-repository ppa:fish-shell/release-2
-    sudo apt-add-repository ppa:neovim-ppa/stable
-  fi
+  sudo apt-add-repository ppa:neovim-ppa/stable
 
   echo "Download package lists"
   sudo apt-get update -q -y 2>&1 >/dev/null
