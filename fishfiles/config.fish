@@ -1,7 +1,5 @@
 set PATH ~/.local/bin $PATH
 
-fish_vi_key_bindings
-
 # Plugins
 fundle plugin "strika/catfish-pine"
 fundle plugin "FabioAntunes/fish-nvm"
