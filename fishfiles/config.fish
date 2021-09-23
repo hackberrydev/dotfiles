@@ -1,4 +1,4 @@
-set PATH ~/.local/bin $PATH
+set PATH ~/.local/bin ~/.cargo/bin $PATH
 
 # Plugins
 fundle plugin "strika/catfish-pine"
