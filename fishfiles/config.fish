@@ -13,7 +13,7 @@ set fish_greeting
 # Aliases
 alias e="kak"
 alias diskusage="du -h -d1 2> /dev/null | sort -h"
-alias t="cd ~/vimwiki; e Tasks.md"
+alias t="cd ~/wiki; e tasks.md"
 alias play="mplayer -subcp cp1250"
 
 # Git aliases
