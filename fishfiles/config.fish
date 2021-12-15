@@ -12,7 +12,6 @@ set fish_greeting
 
 # Aliases
 alias e="kak"
-alias diskusage="du -h -d1 2> /dev/null | sort -h"
 alias t="cd ~/wiki; alas --insert-days 3 tasks.md; e tasks.md"
 alias play="mplayer -subcp cp1250"
 
