@@ -12,7 +12,7 @@ set fish_greeting
 
 # Aliases
 alias e="kak"
-alias t="cd ~/wiki; alas --insert-days 3 tasks.md; e tasks.md"
+alias t="cd ~/wiki; alas --insert-days 3 --remove-empty-days tasks.md; e tasks.md"
 alias play="mplayer -subcp cp1250"
 
 # Git aliases
