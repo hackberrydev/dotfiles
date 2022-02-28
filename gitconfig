@@ -1,5 +1,6 @@
 [core]
   editor = kak
+  excludesFile = ~/.gitignore
 
 [user]
   name = Nebojša Stričević
