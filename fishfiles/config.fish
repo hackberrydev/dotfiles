@@ -22,10 +22,6 @@ alias grc="git add .; and git rebase --continue"
 alias grm="git rebase -i master"
 alias gpsf="git push -f"
 
-# Vim aliases
-alias v="nvim"
-alias vim="nvim"
-
 # Ruby on Rails aliases
 alias b="bundle"
 alias pewpew="bin/rails db:migrate db:test:prepare"
