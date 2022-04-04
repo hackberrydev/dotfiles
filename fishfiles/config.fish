@@ -13,7 +13,7 @@ set fish_greeting
 # Aliases
 alias gr="grep -rn"
 alias e="kak"
-alias p="cd ~/wiki; alas --insert-days 3 --remove-empty-days --skip-backup --schedule-tasks scheduled.md plan.md; e plan.md"
+alias p="plan"
 alias play="mplayer -subcp cp1250"
 
 # Git aliases
