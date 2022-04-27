@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 cd ~/wiki
-alas --insert-days 3 --remove-empty-days --skip-backup --schedule-tasks scheduled.md plan.md
+alas --insert-days 3 --remove-empty-days --skip-backup --schedule-tasks scheduled.md --schedule-contacts contacts plan.md
 tmux new-session -d 'kak plan.md'
 tmux -2 attach-session -d
