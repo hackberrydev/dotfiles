@@ -1,14 +1,17 @@
 set PATH ~/.local/bin ~/.cargo/bin $PATH
 
 # Plugins
-fundle plugin "strika/catfish-pine"
-fundle plugin "FabioAntunes/fish-nvm"
 fundle plugin "edc/bass"
+fundle plugin "FabioAntunes/fish-nvm"
+fundle plugin "pure-fish/pure"
 
 fundle init
 
 # Remove the default Fish greeting
 set fish_greeting
+
+# Prompt configuration
+_pure_set_default pure_enable_single_line_prompt true
 
 # Aliases
 alias gr="grep -rn"
