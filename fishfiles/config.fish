@@ -12,7 +12,7 @@ set fish_greeting
 
 # Prompt configuration
 
-# Clear previously set color variables
+# Clear previously set pure variables
 for variable in (set -n | grep -e pure_)
     set -e $variable
 end
