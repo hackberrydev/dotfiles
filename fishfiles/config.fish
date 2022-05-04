@@ -11,14 +11,8 @@ fundle init
 set fish_greeting
 
 # Prompt configuration
-
-# Clear previously set pure variables
-for variable in (set -n | grep -e pure_)
-    set -e $variable
-end
-_pure_set_default pure_enable_single_line_prompt true
-_pure_set_default pure_color_git_branch green
-source $__fish_config_dir/fundle/pure-fish/pure/conf.d/pure.fish
+set --universal pure_enable_single_line_prompt true
+set --universal pure_color_git_branch green
 
 # Aliases
 alias gr="grep -rn"
