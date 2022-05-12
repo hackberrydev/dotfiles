@@ -2,7 +2,6 @@ set PATH ~/.local/bin ~/.cargo/bin $PATH
 
 # Plugins
 fundle plugin "edc/bass"
-fundle plugin "FabioAntunes/fish-nvm"
 fundle plugin "pure-fish/pure"
 
 fundle init
