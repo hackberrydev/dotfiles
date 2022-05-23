@@ -12,15 +12,13 @@ install_submodules() {
 }
 
 install_basic_packages() {
-  sudo apt-add-repository ppa:neovim-ppa/stable
-
   echo "Download package lists"
   sudo apt-get update -q -y 2>&1 >/dev/null
 
   echo "Install basic tools"
   sudo apt-get install -y git make tmux ack-grep exuberant-ctags tree \
     build-essential libssl-dev libreadline-dev zlib1g-dev htop ncdu \
-    fish neovim kitty httpie tidy aspell aspell-en \
+    fish kitty httpie tidy aspell aspell-en \
     2>&1 >/dev/null
 }
 
@@ -75,20 +73,6 @@ setup_fish() {
   fish_update_completions
 }
 
-install_neovim() {
-  nvim_directory="${HOME}/.config/nvim"
-
-  if [[ ! -d $nvim_directory ]]; then
-    echo "Set editor to Neovim"
-    sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-    sudo update-alternatives --config editor
-
-    echo "Install neovimfiles"
-    git clone https://github.com/strika/neovimfiles.git "$nvim_directory"
-    cd "$nvim_directory" && ./install
-  fi
-}
-
 install_bat() {
   echo "Install bat"
   wget https://github.com/sharkdp/bat/releases/download/v0.12.0/bat_0.12.0_amd64.deb
@@ -124,7 +108,6 @@ do_all() {
   setup_kitty
   setup_fish
   install_fzf
-  install_neovim
   install_bat
   install_rbenv
 }
