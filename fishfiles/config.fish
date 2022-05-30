@@ -19,6 +19,7 @@ alias gr="grep -rn"
 alias e="kak"
 alias p="plan"
 alias play="mplayer -subcp cp1250"
+alias import_prs="gh search prs --repo aligni/aligni --state open --review-requested strika --json url --template '{{range .}}\"#aligni - Review {{print .url}}\"{{println}}{{end}}' | xargs -I % alas --skip-backup --insert-task % plan.md"
 
 # Git aliases
 alias g="git"
