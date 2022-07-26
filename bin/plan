@@ -2,6 +2,6 @@
 
 cd ~/wiki
 alas --insert-days 3 --remove-empty-days --skip-backup --schedule-tasks scheduled.md --schedule-contacts contacts plan.md
-gh search prs --repo aligni/aligni --state open --review-requested strika --json url --template '{{range .}}"#aligni - Review {{print .url}}"{{println}}{{end}}' | xargs -I % alas --skip-backup --insert-task % plan.md
+gh search prs --repo aligni/aligni --state open --review-requested strika --json url --template '{{range .}}"#aligni - Review {{print .url}}"{{println}}{{end}}' | sort | xargs -I % alas --skip-backup --insert-task % plan.md
 tmux new-session -d 'kak plan.md'
 tmux -2 attach-session -d
