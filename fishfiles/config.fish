@@ -1,4 +1,5 @@
-set PATH ~/.local/bin ~/.cargo/bin $PATH
+fish_add_path ~/.local/bin
+fish_add_path ~/.cargo/bin
 
 # Plugins
 fundle plugin "edc/bass"
