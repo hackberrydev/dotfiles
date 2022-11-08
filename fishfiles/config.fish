@@ -35,17 +35,17 @@ alias pewpew="bin/rails db:migrate db:test:prepare"
 alias srv="bin/rails server -b 0.0.0.0"
 
 function vbox
-  switch (count $argv)
-  case 0
-    ssh -p 2222 -o ForwardX11=yes -o ForwardX11Trusted=yes -o ForwardAgent=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/def/null strika@localhost
-  case 1
-    VBoxHeadless --startvm $argv[1] &
-  end
+    switch (count $argv)
+    case 0
+        ssh -p 2222 -o ForwardX11=yes -o ForwardX11Trusted=yes -o ForwardAgent=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/def/null strika@localhost
+    case 1
+        VBoxHeadless --startvm $argv[1] &
+    end
 end
 
 # SSH Agent
 if set -q SSH_CONNECTION; and not ssh-add -l > /dev/null
-  ssh-add
+    ssh-add
 end
 
 # Rbenv
