@@ -31,7 +31,6 @@ alias grm="git rebase -i master"
 alias b="bundle"
 alias console="bin/rails console"
 alias import_db="env DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bin/rake db:drop db:create; and mysql aligni_development -u developer -p < ~/aligni-db/latest; and bin/rake db:migrate db:test:prepare"
-alias pewpew="bin/rails db:migrate db:test:prepare"
 alias srv="bin/rails server -b 0.0.0.0"
 
 function vbox
