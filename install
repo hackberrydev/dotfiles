@@ -67,9 +67,6 @@ setup_fish() {
     ln -sfv "$file" "${HOME}/.config/fish/${name}"
   done
 
-  mkdir -p ~/.config/fish/functions
-  wget https://git.io/fundle -O ~/.config/fish/functions/fundle.fish
-
   fish_update_completions
 }
 

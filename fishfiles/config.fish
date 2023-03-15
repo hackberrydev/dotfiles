@@ -1,3 +1,5 @@
+if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
+
 fish_add_path ~/.local/bin
 fish_add_path ~/.cargo/bin
 
