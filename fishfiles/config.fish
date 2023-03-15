@@ -50,4 +50,4 @@ if set -q SSH_CONNECTION; and not ssh-add -l > /dev/null
 end
 
 # Rbenv
-status --is-interactive; and rbenv init - | source
+status --is-interactive; and ~/.rbenv/bin/rbenv init - fish | source
