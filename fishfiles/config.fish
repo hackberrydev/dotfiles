@@ -18,6 +18,8 @@ set fish_greeting
 set --universal pure_enable_single_line_prompt true
 set --universal pure_color_git_branch green
 
+set --universal EDITOR kak
+
 # Aliases
 alias gr="grep -rn"
 alias e="kak"
