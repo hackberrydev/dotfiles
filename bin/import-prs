@@ -1,0 +1,12 @@
+#!/usr/bin/env fish
+
+for repo in aligni aligni-infrastructure
+  gh search prs \
+    --repo aligni/$repo \
+    --state open \
+    --review-requested strika \
+    --json url \
+    --template '{{range .}}#aligni - Review {{print .url}}{{println}}{{end}}' \
+    | sort \
+    | xargs -I % alas --skip-backup --insert-task % plan.md
+end
