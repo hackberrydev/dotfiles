@@ -37,26 +37,27 @@
 
 [alias]
   a = add
-  st = status -sb
-  ci = commit
-  ca = commit --amend
-  fix = commit -am 'fix'
   br = branch
+  ca = commit --amend
+  ci = commit
   co = checkout
-  df = diff
   dfc = diff --cached
+  df = diff
+  fix = commit -am 'fix'
+  last = describe --abbrev=0 --tags
+  lbranch = log --graph --simplify-by-decoration --pretty=format:'%C(yellow)%h%C(white)%d %C(bold black)%ar %C(reset)%n' --all
   lg = log -p
-  who = shortlog -s --
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  ls = ls-files
   pl = pull
   ps = push
-  lol = log --graph --decorate --pretty=oneline --abbrev-commit
-  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  lbranch = log --graph --simplify-by-decoration --pretty=format:'%C(yellow)%h%C(white)%d %C(bold black)%ar %C(reset)%n' --all
-  ls = ls-files
-  last = describe --abbrev=0 --tags
+  purge = !git checkout master && git pull && git remote prune origin && git branch --merged | grep -v "master" | xargs git branch -D
+  refactor = commit -am 'refactor'
+  report = !git for-each-ref --sort=committerdate --format='%(refname:short) * %(authorname) * %(committerdate:relative)' refs/remotes/ | column -t -s '*'.
   rpo = remote prune origin
   rso = remote show origin
-  purge = !git checkout master && git pull && git remote prune origin && git branch --merged | grep -v "master" | xargs git branch -D
-  report = !git for-each-ref --sort=committerdate --format='%(refname:short) * %(authorname) * %(committerdate:relative)' refs/remotes/ | column -t -s '*'.
+  st = status -sb
+  who = shortlog -s --
 [pull]
   ff = only
