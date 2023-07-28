@@ -59,5 +59,6 @@
   rso = remote show origin
   st = status -sb
   who = shortlog -s --
+
 [pull]
   ff = only
