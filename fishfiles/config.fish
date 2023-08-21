@@ -20,6 +20,14 @@ set --universal pure_color_git_branch green
 
 set --universal EDITOR kak
 
+function ls --wraps=ls --description 'List contents of directory with hiperlinks'
+    command ls --hyperlink=auto $argv
+end
+
+function ll --wraps=ls --description 'List contents of directory using long format with hyperlinks'
+    command ls -lh --hyperlink=auto $argv
+end
+
 # Aliases
 alias gr="grep -rn"
 alias e="kak"
