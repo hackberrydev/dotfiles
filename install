@@ -100,7 +100,7 @@ install_rbenv() {
 install_skyspell() {
   echo "Install skyspell"
   sudo apt install libsqlite3-dev libenchant-2-dev aspell aspell-en
-  cargo install skyspell
+  cargo install skyspell skyspell_kak
 }
 
 do_all() {
