@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 cd ~/wiki
-alas --insert-days 3 --remove-empty-days --skip-backup --schedule-tasks scheduled.md --schedule-contacts contacts plan.md
-import-prs
 tmux new-session -d 'kak plan.md'
 tmux split-window -h
-tmux -2 attach-session -d
+alas --insert-days 3 --remove-empty-days --skip-backup --schedule-tasks scheduled.md --schedule-contacts contacts plan.md && \
+  import-prs && \
+  tmux -2 attach-session -d
