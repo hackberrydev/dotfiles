@@ -18,7 +18,7 @@ install_basic_packages() {
   echo "Install basic tools"
   sudo apt-get install -y git make tmux ack-grep exuberant-ctags tree \
     build-essential libssl-dev libreadline-dev zlib1g-dev htop ncdu \
-    fish kitty httpie tidy aspell aspell-en golang-go \
+    fish kitty httpie tidy aspell aspell-en golang-go libyaml-dev \
     2>&1 >/dev/null
 }
 
