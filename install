@@ -70,6 +70,12 @@ setup_fish() {
   fish_update_completions
 }
 
+setup_tmux() {
+  echo "Setup tmux"
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  echo "Press prefix + I (capital i, as in Install) to fetch the plugin."
+}
+
 install_bat() {
   echo "Install bat"
   wget https://github.com/sharkdp/bat/releases/download/v0.12.0/bat_0.12.0_amd64.deb
