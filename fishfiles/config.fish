@@ -3,6 +3,7 @@ if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 fish_add_path ~/.local/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/go/bin
+fish_add_path ~/.local/share/pipx/venvs/ansible/bin
 
 # Plugins
 fundle plugin "edc/bass"
