@@ -19,6 +19,7 @@ install_basic_packages() {
   sudo apt-get install -y git make tmux ack-grep exuberant-ctags tree \
     build-essential libssl-dev libreadline-dev zlib1g-dev htop ncal ncdu \
     fish kitty httpie tidy aspell aspell-en golang-go libyaml-dev fonts-inconsolata \
+    libmagickwand-dev \
     2>&1 >/dev/null
 }
 
