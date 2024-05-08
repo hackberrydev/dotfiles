@@ -40,6 +40,7 @@ install_basic_packages() {
     tidy \
     tmux \
     tree \
+    wget \
     zlib1g-dev \
     2>&1 >/dev/null
 }
