@@ -27,9 +27,9 @@ install_basic_packages() {
     fonts-inconsolata \
     git \
     golang-go \
+    foot \
     htop \
     httpie \
-    kitty \
     libmagickwand-dev \
     libreadline-dev \
     libssl-dev \
@@ -65,16 +65,16 @@ link_dotfiles() {
   done
 }
 
-setup_kitty() {
-  kitty_config_dir="${HOME}/.config/kitty"
+setup_foot() {
+  foot_config_dir="${HOME}/.config/foot"
 
-  echo "Install kittyfiles"
+  echo "Configure foot"
 
-  mkdir -p "$kitty_config_dir"
+  mkdir -p "$foot_config_dir"
 
-  for file in "${here}/kittyfiles"/*; do
+  for file in "${here}/footfiles"/*; do
     name="$(basename "$file")"
-    ln -sfv "$file" "${kitty_config_dir}/${name}"
+    ln -sfv "$file" "${foot_config_dir}/${name}"
   done
 }
 
@@ -137,7 +137,7 @@ do_all() {
   install_basic_packages
   install_local_bin
   link_dotfiles
-  setup_kitty
+  setup_foot
   setup_fish
   install_fzf
   install_bat
