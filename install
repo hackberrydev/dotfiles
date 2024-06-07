@@ -37,6 +37,7 @@ install_basic_packages() {
     make \
     ncal \
     ncdu \
+    ntp \
     tidy \
     tmux \
     tree \
