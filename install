@@ -22,7 +22,6 @@ install_basic_packages() {
     aspell-en \
     build-essential \
     dnsutils \
-    exuberant-ctags \
     fish \
     fonts-inconsolata \
     git \
@@ -60,12 +59,74 @@ install_local_bin() {
 link_dotfiles() {
   echo "Link dotfiles"
 
-  dotfiles=(gitconfig gitattributes rdebugrc rspec tmux.conf)
+  dotfiles=(gitattributes rdebugrc rspec tmux.conf)
 
   for file in "${dotfiles[@]}"; do
     dotname=".${file}"
     ln -sfv "${here}/${file}" "${HOME}/${dotname}"
   done
+}
+
+setup_git() {
+  # Core configurations
+  git config --global core.editor "vim"
+  git config --global core.excludesFile "~/.gitignore"
+
+  # Color configurations
+  git config --global color.ui "auto"
+
+  git config --global color.branch.current "yellow reverse"
+  git config --global color.branch.local "yellow"
+  git config --global color.branch.remote "green"
+
+  git config --global color.diff.meta "yellow bold"
+  git config --global color.diff.frag "magenta bold"
+  git config --global color.diff.old "red bold"
+  git config --global color.diff.new "green bold"
+
+  git config --global color.status.added "yellow"
+  git config --global color.status.changed "green"
+  git config --global color.status.untracked "cyan"
+
+  # Push configurations
+  git config --global push.default "current"
+
+  # Pager configurations
+  git config --global pager.diff "diff-so-fancy | less --tabs=1,5 -RFX"
+  git config --global pager.show "diff-so-fancy | less --tabs=1,5 -RFX"
+
+  # Alias configurations
+  git config --global alias.a "add"
+  git config --global alias.br "branch"
+  git config --global alias.ca "commit --amend"
+  git config --global alias.ci "commit"
+  git config --global alias.co "checkout"
+  git config --global alias.dfc "diff --cached"
+  git config --global alias.df "diff"
+  git config --global alias.fix "commit -am 'fix'"
+  git config --global alias.last "describe --abbrev=0 --tags"
+  git config --global alias.lbranch "log --graph --simplify-by-decoration --pretty=format:'%C(yellow)%h%C(white)%d %C(bold black)%ar %C(reset)%n' --all"
+  git config --global alias.lg "log -p"
+  git config --global alias.lola "log --graph --decorate --pretty=oneline --abbrev-commit --all"
+  git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit"
+  git config --global alias.ls "ls-files"
+  git config --global alias.pl "pull"
+  git config --global alias.ps "push"
+  git config --global alias.purge "!git checkout master && git pull && git remote prune origin && git branch --merged | grep -v 'master' | xargs git branch -D"
+  git config --global alias.refactor "commit -am 'refactor'"
+  git config --global alias.report "!git for-each-ref --sort=committerdate --format='%(refname:short) * %(authorname) * %(committerdate:relative)' refs/remotes/ | column -t -s '*'"
+  git config --global alias.rpo "remote prune origin"
+  git config --global alias.rso "remote show origin"
+  git config --global alias.st "status -sb"
+  git config --global alias.who "shortlog -s --"
+
+  # Pull configurations
+  git config --global pull.ff "only"
+
+  echo "Please set up the following Git options manually:"
+  echo 'git config --global github.user "john"'
+  echo 'git config --global user.name "John Doe"'
+  echo 'git config --global user.email "johndoe@example.com"'
 }
 
 setup_foot() {
@@ -140,6 +201,7 @@ do_all() {
   install_basic_packages
   install_local_bin
   link_dotfiles
+  setup_git
   setup_foot
   setup_fish
   install_fzf
