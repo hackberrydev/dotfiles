@@ -60,7 +60,7 @@ install_local_bin() {
 link_dotfiles() {
   echo "Link dotfiles"
 
-  dotfiles=(gitconfig gitattributes rdebugrc rspec tmux.conf)
+  dotfiles=(gitattributes rdebugrc rspec tmux.conf)
 
   for file in "${dotfiles[@]}"; do
     dotname=".${file}"
