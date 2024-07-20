@@ -22,7 +22,6 @@ install_basic_packages() {
     aspell-en \
     build-essential \
     dnsutils \
-    exuberant-ctags \
     fish \
     fonts-inconsolata \
     git \
