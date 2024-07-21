@@ -21,6 +21,7 @@ install_basic_packages() {
     aspell \
     aspell-en \
     build-essential \
+    cargo \
     dnsutils \
     fish \
     fonts-inconsolata \
