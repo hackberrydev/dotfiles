@@ -194,7 +194,8 @@ install_rbenv() {
 install_skyspell() {
   echo "Install skyspell"
   sudo apt install libsqlite3-dev libenchant-2-dev aspell aspell-en
-  cargo install skyspell skyspell_kak --locked
+  cargo install skyspell --version 1.0.1 --locked
+  cargo install skyspell_kak --version 1.0.1 --locked
 }
 
 do_all() {
