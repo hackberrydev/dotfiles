@@ -206,6 +206,7 @@ do_all() {
   setup_git
   setup_foot
   setup_fish
+  setup_tmux
   install_fzf
   install_bat
   install_rbenv
