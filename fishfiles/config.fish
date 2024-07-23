@@ -44,15 +44,6 @@ alias grm="git rebase -i master"
 alias b="bundle"
 alias be="bundle exec"
 
-function vbox
-    switch (count $argv)
-    case 0
-        ssh -p 2222 -o ForwardX11=yes -o ForwardX11Trusted=yes -o ForwardAgent=yes -o StrictHostKeyChecking=no -o UserKnownHostsFile=/def/null strika@localhost
-    case 1
-        VBoxHeadless --startvm $argv[1] &
-    end
-end
-
 # SSH Agent
 if set -q SSH_CONNECTION; and not ssh-add -l > /dev/null
     ssh-add
