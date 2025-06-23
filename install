@@ -113,7 +113,7 @@ setup_git() {
   git config --global alias.ls "ls-files"
   git config --global alias.pl "pull"
   git config --global alias.ps "push"
-  git config --global alias.purge "!git checkout master && git pull && git remote prune origin && git branch --merged | grep -v 'master' | xargs git branch -D"
+  git config --global alias.purge "!git checkout $(git rev-parse --abbrev-ref origin/HEAD | cut -d/ -f2-) && git pull && git remote prune origin && git branch --merged | grep -v '^\\*' | grep -v $(git rev-parse --abbrev-ref origin/HEAD | cut -d/ -f2-) | xargs -r git branch -D"
   git config --global alias.refactor "commit -am 'refactor'"
   git config --global alias.report "!git for-each-ref --sort=committerdate --format='%(refname:short) * %(authorname) * %(committerdate:relative)' refs/remotes/ | column -t -s '*'"
   git config --global alias.rpo "remote prune origin"
