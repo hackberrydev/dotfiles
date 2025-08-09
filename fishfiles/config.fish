@@ -18,7 +18,7 @@ set fish_greeting
 set --universal pure_enable_single_line_prompt true
 set --universal pure_color_git_branch green
 
-set --universal EDITOR kak
+set --universal EDITOR hx
 
 function ls --wraps=ls --description 'List contents of directory with hiperlinks'
     command ls --hyperlink=auto $argv
