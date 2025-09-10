@@ -30,7 +30,7 @@ end
 
 # Aliases
 alias gr="grep -rn"
-alias e="kak"
+alias e="hx"
 alias p="plan"
 alias play="mplayer -subcp cp1250"
 
