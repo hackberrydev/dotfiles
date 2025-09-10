@@ -158,6 +158,19 @@ setup_fish() {
   fish_update_completions
 }
 
+setup_helix() {
+  helix_config_dir="${HOME}/.config/helix"
+
+  echo "Configure helix"
+
+  mkdir -p "$helix_config_dir"
+
+  for file in "${here}/helixfiles"/*; do
+    name="$(basename "$file")"
+    ln -sfv "$file" "${helix_config_dir}/${name}"
+  done
+}
+
 setup_tmux() {
   echo "Setup tmux"
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -205,6 +218,7 @@ do_all() {
   link_dotfiles
   setup_git
   setup_foot
+  setup_helix
   setup_fish
   setup_tmux
   install_fzf

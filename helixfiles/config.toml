@@ -1,0 +1,39 @@
+theme = "catppuccin_frappe"
+
+[editor]
+line-number = "relative"
+
+[keys.normal]
+n = "move_visual_line_down"
+j = "search_next"
+N = "join_selections"
+J = "search_prev"
+A-N = "join_selections_space"
+
+e = "move_visual_line_up"
+k = "move_next_word_end"
+E = "keep_selections"
+K = "move_next_long_word_end"
+A-E = "remove_selections"
+
+i = "move_char_right"
+l = "insert_mode"
+L = "insert_at_line_start"
+
+A-w = "@ghf[irX"
+A-q = "@ghf[ir "
+
+[keys.normal."C-w"]
+i = "jump_view_right"
+n = "jump_view_down"
+e = "jump_view_up"
+
+[keys.normal.g]
+i = "goto_line_end"
+l = "goto_implementation"
+
+[keys.select.g]
+i = "goto_line_end"
+
+[keys.normal.space]
+A-a = "@o- [ ] #aligni - "

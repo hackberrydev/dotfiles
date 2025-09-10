@@ -1,0 +1,23 @@
+[language-server.standardrb]
+command = "standardrb"
+args = [ "--lsp" ]
+
+[language-server.github-copilot]
+command = "copilot-language-server"
+args = [ "--stdio" ]
+
+[[language]]
+name = "ruby"
+language-servers = [ { name = "ruby-lsp", except-features = [ "diagnostics" ] }, { name = "solargraph", except-features = [ "diagnostics" ] }, "standardrb", "github-copilot" ]
+
+[language-server.biome]
+command = "npx"
+args = [ "biome", "lsp-proxy" ]
+
+[[language]]
+name = "javascript"
+language-servers = [ "biome", "github-copilot" ]
+
+[[language]]
+name = "json"
+language-servers = [ "biome", "github-copilot" ]
