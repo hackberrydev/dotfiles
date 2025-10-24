@@ -3,6 +3,9 @@ theme = "catppuccin_frappe"
 [editor]
 line-number = "relative"
 
+[editor.soft-wrap]
+enable = true
+
 [keys.normal]
 n = "move_visual_line_down"
 j = "search_next"
@@ -20,8 +23,12 @@ i = "move_char_right"
 l = "insert_mode"
 L = "insert_at_line_start"
 
+D = ["ensure_selections_forward", "extend_to_line_end", "delete_selection"]
+
 A-w = "@ghf[irX"
 A-q = "@ghf[ir "
+
+C-p = ":sh echo %val{buffile} | xclip -selection clipboard"
 
 [keys.normal."C-w"]
 i = "jump_view_right"
@@ -37,3 +44,4 @@ i = "goto_line_end"
 
 [keys.normal.space]
 A-a = "@o- [ ] #aligni - "
+l = ":reflow"
