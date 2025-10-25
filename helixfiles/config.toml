@@ -1,7 +1,14 @@
 theme = "catppuccin_frappe"
 
 [editor]
+color-modes = true
 line-number = "relative"
+rulers = [100]
+trim-trailing-whitespace = true
+true-color = true
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [editor.soft-wrap]
 enable = true
