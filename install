@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 here="$(dirname "$0")"
 here="$(cd "$here"; pwd)"
 
-mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+mkdir -p "${XDG_CONFIG_HOME:=$HOME/.config}"
 
 install_submodules() {
   echo "Installing submodules"
@@ -13,13 +14,14 @@ install_submodules() {
 
 install_basic_packages() {
   echo "Download package lists"
-  sudo apt-get update -q -y 2>&1 >/dev/null
+  sudo apt-get update -q -y >/dev/null
 
   echo "Install basic tools"
   sudo apt-get install -y \
     ack-grep \
     aspell \
     aspell-en \
+    bat \
     build-essential \
     btop \
     cargo \
@@ -40,13 +42,12 @@ install_basic_packages() {
     make \
     ncal \
     ncdu \
-    ntp \
     tidy \
     tmux \
     tree \
     wget \
     zlib1g-dev \
-    2>&1 >/dev/null
+    >/dev/null
 }
 
 install_local_bin() {
@@ -156,7 +157,8 @@ setup_fish() {
     ln -sfv "$file" "${HOME}/.config/fish/${name}"
   done
 
-  fish_update_completions
+  fish -c "fundle install"
+  fish -c fish_update_completions
 }
 
 setup_helix() {
@@ -174,15 +176,10 @@ setup_helix() {
 
 setup_tmux() {
   echo "Setup tmux"
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  echo "Press prefix + I (capital i, as in Install) to fetch the plugin."
-}
-
-install_bat() {
-  echo "Install bat"
-  wget https://github.com/sharkdp/bat/releases/download/v0.12.0/bat_0.12.0_amd64.deb
-  sudo dpkg --install bat_0.12.0_amd64.deb
-  rm bat_0.12.0_amd64.deb
+  if [[ ! -d ~/.tmux/plugins/tpm ]]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
+  ~/.tmux/plugins/tpm/bin/install_plugins
 }
 
 install_fzf() {
@@ -207,9 +204,9 @@ install_rbenv() {
 
 install_skyspell() {
   echo "Install skyspell"
-  sudo apt install libsqlite3-dev libenchant-2-dev aspell aspell-en
-  cargo install skyspell --version 1.0.1 --locked
-  cargo install skyspell_kak --version 1.0.1 --locked
+  sudo apt install -y libsqlite3-dev libenchant-2-dev aspell aspell-en
+  cargo install --quiet skyspell --version 1.0.1 --locked
+  cargo install --quiet skyspell_kak --version 1.0.1 --locked
 }
 
 do_all() {
@@ -220,11 +217,10 @@ do_all() {
   setup_git
   setup_foot
   setup_helix
-  setup_fish
   setup_tmux
   install_fzf
-  install_bat
   install_rbenv
+  setup_fish
   install_skyspell
 }
 
