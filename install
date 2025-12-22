@@ -209,6 +209,27 @@ install_skyspell() {
   cargo install --quiet skyspell_kak --version 1.0.1 --locked
 }
 
+install_nerd_font() {
+  local font_dir="${HOME}/.local/share/fonts"
+  local font_name="Inconsolata"
+  local font_zip="${font_name}.zip"
+  local download_url="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/${font_zip}"
+
+  if fc-list | grep -qi "Inconsolata.*Nerd"; then
+    echo "Inconsolata Nerd Font already installed"
+    return
+  fi
+
+  echo "Install Inconsolata Nerd Font"
+  mkdir -p "$font_dir"
+
+  wget -q -O "/tmp/${font_zip}" "$download_url"
+  unzip -o -q "/tmp/${font_zip}" -d "${font_dir}/InconsolataNerdFont"
+  rm "/tmp/${font_zip}"
+
+  fc-cache -f
+}
+
 do_all() {
   install_submodules
   install_basic_packages
@@ -222,6 +243,7 @@ do_all() {
   install_rbenv
   setup_fish
   install_skyspell
+  install_nerd_font
 }
 
 do_all
