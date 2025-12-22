@@ -46,7 +46,6 @@ install_basic_packages() {
     ncal \
     ncdu \
     opensnitch \
-    syncthing \
     thunderbird \
     tidy \
     tmux \
