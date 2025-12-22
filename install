@@ -279,7 +279,7 @@ install_marksman() {
   local binary="/tmp/marksman"
 
   latest_url=$(wget -qO- "https://api.github.com/repos/artempyanykh/marksman/releases/latest" \
-    | grep -oP '"browser_download_url": "\K[^"]+marksman-linux-x64"')
+    | grep -oP '"browser_download_url": "\K[^"]+marksman-linux-x64')
 
   if [[ -z "$latest_url" ]]; then
     echo "Failed to find Marksman download URL"
