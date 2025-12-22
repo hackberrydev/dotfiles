@@ -57,6 +57,13 @@ install_basic_packages() {
     >/dev/null
 }
 
+remove_unnecessary_packages() {
+  echo "Remove unnecessary packages"
+
+  sudo apt remove --purge evolution speech-dispatcher
+  sudo apt autoremove
+}
+
 install_local_bin() {
   mkdir -p "${HOME}/.local/bin"
 
@@ -240,6 +247,7 @@ install_nerd_font() {
 do_all() {
   install_submodules
   install_basic_packages
+  remove_unnecessary_packages
   install_local_bin
   link_dotfiles
   setup_git
