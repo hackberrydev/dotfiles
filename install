@@ -272,6 +272,26 @@ install_helix() {
   ln -sfv "${helix_dir}/hx" "${HOME}/.local/bin/hx"
 }
 
+install_marksman() {
+  echo "Install Marksman LSP"
+
+  local latest_url
+  local binary="/tmp/marksman"
+
+  latest_url=$(wget -qO- "https://api.github.com/repos/artempyanykh/marksman/releases/latest" \
+    | grep -oP '"browser_download_url": "\K[^"]+marksman-linux-x64"')
+
+  if [[ -z "$latest_url" ]]; then
+    echo "Failed to find Marksman download URL"
+    return 1
+  fi
+
+  wget -q -O "$binary" "$latest_url"
+  chmod +x "$binary"
+
+  mv "$binary" "${HOME}/.local/bin/marksman"
+}
+
 do_all() {
   install_submodules
   install_basic_packages
@@ -281,6 +301,7 @@ do_all() {
   setup_git
   setup_foot
   install_helix
+  install_marksman
   setup_helix
   setup_tmux
   install_fzf
