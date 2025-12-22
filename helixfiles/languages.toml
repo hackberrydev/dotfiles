@@ -8,7 +8,7 @@ args = [ "--stdio" ]
 
 [[language]]
 name = "ruby"
-language-servers = [ { name = "ruby-lsp", except-features = [ "diagnostics" ] }, { name = "solargraph", except-features = [ "diagnostics" ] }, "standardrb", "github-copilot" ]
+language-servers = [ { name = "ruby-lsp", except-features = [ "diagnostics" ] }, "standardrb", "github-copilot" ]
 
 [language-server.biome]
 command = "npx"
