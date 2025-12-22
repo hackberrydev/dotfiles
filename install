@@ -60,8 +60,8 @@ install_basic_packages() {
 remove_unnecessary_packages() {
   echo "Remove unnecessary packages"
 
-  sudo apt remove --purge evolution speech-dispatcher
-  sudo apt autoremove
+  sudo apt remove -y --purge evolution speech-dispatcher > /dev/null
+  sudo apt autoremove -y > /dev/null
 }
 
 install_local_bin() {
