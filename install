@@ -244,6 +244,34 @@ install_nerd_font() {
   fc-cache -f
 }
 
+install_helix() {
+  echo "Install Helix editor"
+
+  local helix_dir="${HOME}/.local/share/helix"
+  local latest_url
+  local tarball
+
+  latest_url=$(wget -qO- "https://api.github.com/repos/helix-editor/helix/releases/latest" \
+    | grep -oP '"browser_download_url": "\K[^"]+x86_64-linux\.tar\.xz')
+
+  if [[ -z "$latest_url" ]]; then
+    echo "Failed to find Helix download URL"
+    return 1
+  fi
+
+  tarball="/tmp/helix.tar.xz"
+
+  wget -q -O "$tarball" "$latest_url"
+
+  rm -rf "$helix_dir"
+  mkdir -p "$helix_dir"
+
+  tar -xJf "$tarball" -C "$helix_dir" --strip-components=1
+  rm "$tarball"
+
+  ln -sfv "${helix_dir}/hx" "${HOME}/.local/bin/hx"
+}
+
 do_all() {
   install_submodules
   install_basic_packages
@@ -252,6 +280,7 @@ do_all() {
   link_dotfiles
   setup_git
   setup_foot
+  install_helix
   setup_helix
   setup_tmux
   install_fzf
