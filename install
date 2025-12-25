@@ -26,6 +26,7 @@ install_basic_packages() {
     btop \
     build-essential \
     cargo \
+    default-libmysqlclient-dev \
     deja-dup \
     dnsutils \
     fish \
