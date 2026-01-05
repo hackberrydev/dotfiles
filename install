@@ -36,6 +36,7 @@ install_basic_packages() {
     golang-go \
     htop \
     httpie \
+    kakoune \
     laptop-mode-tools \
     libmagickwand-dev \
     libreadline-dev \
