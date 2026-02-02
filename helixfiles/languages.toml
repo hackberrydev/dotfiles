@@ -8,7 +8,7 @@ args = [ "--stdio" ]
 
 [[language]]
 name = "ruby"
-language-servers = [ { name = "ruby-lsp", except-features = [ "diagnostics" ] }, "standardrb", "github-copilot" ]
+language-servers = [ { name = "ruby-lsp", except-features = [ "diagnostics" ] }, "standardrb" ]
 
 [language-server.biome]
 command = "npx"
@@ -16,8 +16,8 @@ args = [ "biome", "lsp-proxy" ]
 
 [[language]]
 name = "javascript"
-language-servers = [ "biome", "github-copilot" ]
+language-servers = [ "biome" ]
 
 [[language]]
 name = "json"
-language-servers = [ "biome", "github-copilot" ]
+language-servers = [ "biome" ]
