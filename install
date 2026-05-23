@@ -217,11 +217,14 @@ install_rbenv() {
   fi
 }
 
-install_skyspell() {
-  echo "Install skyspell"
-  sudo apt install -y libsqlite3-dev libenchant-2-dev aspell aspell-en
-  cargo install --quiet skyspell --version 1.0.1 --locked
-  cargo install --quiet skyspell_kak --version 1.0.1 --locked
+install_harper() {
+  local tarball="/tmp/harper.tar.gz"
+
+  echo "Install Harper"
+  mkdir -p ~/.local/bin
+  wget -q -O "$tarball" https://github.com/Automattic/harper/releases/download/v2.2.1/harper-ls-x86_64-unknown-linux-gnu.tar.gz
+  tar xvf "$tarball" -C ~/.local/bin
+  rm "${tarball}"
 }
 
 install_nerd_font() {
@@ -308,7 +311,7 @@ do_all() {
   install_fzf
   install_rbenv
   setup_fish
-  install_skyspell
+  install_harper
   install_nerd_font
 }
 

@@ -2,22 +2,42 @@
 command = "standardrb"
 args = [ "--lsp" ]
 
-[language-server.github-copilot]
-command = "copilot-language-server"
+[language-server.lsp-ruby]
+command = "bin/lsp-ruby"
+
+[language-server.biome]
+command = "bin/lsp-biome"
+
+[language-server.herb]
+command = "bin/lsp-herb"
+
+[language-server.harper-ls]
+command = "harper-ls"
 args = [ "--stdio" ]
+
+[language-server.harper-ls.config.harper-ls]
+userDictPath = "~/.config/harper-ls/dictionary.txt"
 
 [[language]]
 name = "ruby"
-language-servers = [ { name = "ruby-lsp", except-features = [ "diagnostics" ] }, "standardrb" ]
-
-[language-server.biome]
-command = "npx"
-args = [ "biome", "lsp-proxy" ]
+language-servers = [ { name = "ruby-lsp", except-features = [ "diagnostics" ] }, "standardrb", "harper-ls" ]
 
 [[language]]
 name = "javascript"
-language-servers = [ "biome" ]
+language-servers = [ "biome", "harper-ls" ]
 
 [[language]]
 name = "json"
-language-servers = [ "biome" ]
+language-servers = [ "biome", "harper-ls" ]
+
+[[language]]
+name = "erb"
+language-servers = [ "herb", "harper-ls" ]
+
+[[language]]
+name = "markdown"
+language-servers = [ "harper-ls" ]
+
+[[language]]
+name = "git-commit"
+language-servers = [ "harper-ls" ]
