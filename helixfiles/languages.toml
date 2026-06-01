@@ -20,7 +20,7 @@ userDictPath = "~/.config/harper-ls/dictionary.txt"
 
 [[language]]
 name = "ruby"
-language-servers = [ { name = "ruby-lsp", except-features = [ "diagnostics" ] }, "standardrb", "harper-ls" ]
+language-servers = [ { name = "lsp-ruby", except-features = [ "diagnostics" ] }, "standardrb", "harper-ls" ]
 
 [[language]]
 name = "javascript"
