@@ -36,7 +36,7 @@ language-servers = [ "herb", "harper-ls" ]
 
 [[language]]
 name = "markdown"
-language-servers = [ "harper-ls" ]
+language-servers = [ "marksman", "harper-ls" ]
 
 [[language]]
 name = "git-commit"
