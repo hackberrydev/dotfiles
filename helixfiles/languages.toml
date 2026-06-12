@@ -2,9 +2,6 @@
 command = "standardrb"
 args = [ "--lsp" ]
 
-[language-server.lsp-ruby]
-command = "bin/lsp-ruby"
-
 [language-server.biome]
 command = "bin/lsp-biome"
 
@@ -20,7 +17,7 @@ userDictPath = "~/.config/harper-ls/dictionary.txt"
 
 [[language]]
 name = "ruby"
-language-servers = [ { name = "lsp-ruby", except-features = [ "diagnostics" ] }, "standardrb", "harper-ls" ]
+language-servers = [ { name = "ruby-lsp", except-features = [ "diagnostics" ] }, "standardrb", "harper-ls" ]
 
 [[language]]
 name = "javascript"
@@ -36,7 +33,7 @@ language-servers = [ "herb", "harper-ls" ]
 
 [[language]]
 name = "markdown"
-language-servers = [ "marksman", "harper-ls" ]
+language-servers = [ "marksman" ]
 
 [[language]]
 name = "git-commit"
