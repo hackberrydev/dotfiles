@@ -3,10 +3,12 @@ command = "standardrb"
 args = [ "--lsp" ]
 
 [language-server.biome]
-command = "bin/lsp-biome"
+command = "mise"
+args = [ "x", "--", "biome", "lsp-proxy" ]
 
 [language-server.herb]
-command = "bin/lsp-herb"
+command = "mise"
+args = [ "x", "--", "herb-language-server", "--stdio" ]
 
 [language-server.harper-ls]
 command = "harper-ls"
