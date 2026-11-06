@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+alas --insert-days 3 --remove-empty-days --skip-backup \
+  --schedule-tasks scheduled.md \
+  --schedule-contacts contacts \
+  plan.md && \
+  import-prs
+
+hx plan.md

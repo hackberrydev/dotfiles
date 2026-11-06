@@ -31,10 +31,12 @@ function ll --wraps=ls --description 'List contents of directory using long form
 end
 
 # Aliases
+alias c="claude"
 alias gr="grep -rn"
 alias e="hx"
 alias p="plan"
-alias play="mplayer -subcp cp1250"
+alias ph="plan-herdr"
+alias h="herdr"
 
 # Git aliases
 alias g="git"
