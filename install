@@ -36,7 +36,6 @@ install_basic_packages() {
     golang-go \
     htop \
     httpie \
-    kakoune \
     laptop-mode-tools \
     libmagickwand-dev \
     libreadline-dev \
@@ -52,6 +51,7 @@ install_basic_packages() {
     tidy \
     tmux \
     tree \
+    vim \
     vlc \
     wget \
     zlib1g-dev \
