@@ -17,6 +17,9 @@ args = [ "--stdio" ]
 [language-server.harper-ls.config.harper-ls]
 userDictPath = "~/.config/harper-ls/dictionary.txt"
 
+[language-server.ruby-lsp.config]
+formatter = "standard"
+
 [[language]]
 name = "ruby"
 language-servers = [ { name = "ruby-lsp", except-features = [ "diagnostics" ] }, "standardrb", "harper-ls" ]
