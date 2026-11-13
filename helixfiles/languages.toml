@@ -1,6 +1,6 @@
 [language-server.standardrb]
-command = "standardrb"
-args = [ "--lsp" ]
+command = "bundle"
+args = ["exec", "standardrb", "--lsp"]
 
 [language-server.biome]
 command = "mise"
