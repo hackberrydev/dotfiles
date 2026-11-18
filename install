@@ -246,6 +246,15 @@ install_harper() {
   rm "${tarball}"
 }
 
+install_claude() {
+  if [[ -x "${HOME}/.local/bin/claude" ]]; then
+    return
+  fi
+
+  echo "Install Claude Code"
+  curl -fsSL https://claude.ai/install.sh | bash
+}
+
 install_nerd_font() {
   local font_dir="${HOME}/.local/share/fonts"
   local font_name="Inconsolata"
@@ -332,6 +341,7 @@ do_all() {
   install_rbenv
   setup_fish
   install_harper
+  install_claude
   install_nerd_font
 }
 
