@@ -264,6 +264,18 @@ install_herdr() {
   curl -fsSL https://herdr.dev/install.sh | sh
 }
 
+install_alas() {
+  local binary="${HOME}/.local/bin/alas"
+
+  if [[ -x "$binary" ]]; then
+    return
+  fi
+
+  echo "Install alas"
+  wget -q -O "$binary" https://github.com/hackberrydev/alas/releases/latest/download/alas-x86_64-linux
+  chmod +x "$binary"
+}
+
 install_nerd_font() {
   local font_dir="${HOME}/.local/share/fonts"
   local font_name="Inconsolata"
@@ -352,6 +364,7 @@ do_all() {
   install_harper
   install_claude
   install_herdr
+  install_alas
   install_nerd_font
 }
 
