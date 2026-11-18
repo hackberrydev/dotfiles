@@ -255,6 +255,15 @@ install_claude() {
   curl -fsSL https://claude.ai/install.sh | bash
 }
 
+install_herdr() {
+  if [[ -x "${HOME}/.local/bin/herdr" ]]; then
+    return
+  fi
+
+  echo "Install herdr"
+  curl -fsSL https://herdr.dev/install.sh | sh
+}
+
 install_nerd_font() {
   local font_dir="${HOME}/.local/share/fonts"
   local font_name="Inconsolata"
@@ -342,6 +351,7 @@ do_all() {
   setup_fish
   install_harper
   install_claude
+  install_herdr
   install_nerd_font
 }
 
