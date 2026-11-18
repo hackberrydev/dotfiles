@@ -35,7 +35,7 @@ D = ["ensure_selections_forward", "extend_to_line_end", "delete_selection"]
 A-w = "@ghf[irX"
 A-q = "@ghf[ir "
 
-C-p = ":sh echo %val{buffile} | xclip -selection clipboard"
+C-p = ":sh wl-copy %{buffer_name}"
 
 [keys.normal."C-w"]
 i = "jump_view_right"

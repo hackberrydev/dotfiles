@@ -57,6 +57,7 @@ install_basic_packages() {
     vim \
     vlc \
     wget \
+    wl-clipboard \
     zlib1g-dev \
     >/dev/null
 }
