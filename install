@@ -61,6 +61,22 @@ install_basic_packages() {
     >/dev/null
 }
 
+install_mise() {
+  local keyring="/etc/apt/keyrings/mise-archive-keyring.asc"
+
+  if command -v mise >/dev/null; then
+    return
+  fi
+
+  echo "Install mise"
+  sudo install -dm 755 /etc/apt/keyrings
+  wget -qO - https://mise.jdx.dev/gpg-key.pub | sudo tee "$keyring" >/dev/null
+  echo "deb [signed-by=${keyring}] https://mise.jdx.dev/deb stable main" \
+    | sudo tee /etc/apt/sources.list.d/mise.list >/dev/null
+  sudo apt-get update -q -y >/dev/null
+  sudo apt-get install -y mise >/dev/null
+}
+
 remove_unnecessary_packages() {
   echo "Remove unnecessary packages"
 
@@ -302,6 +318,7 @@ install_marksman() {
 do_all() {
   install_submodules
   install_basic_packages
+  install_mise
   remove_unnecessary_packages
   install_local_bin
   link_dotfiles
