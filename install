@@ -33,6 +33,7 @@ install_basic_packages() {
     fish \
     fonts-inconsolata \
     foot \
+    gh \
     git \
     golang-go \
     htop \
