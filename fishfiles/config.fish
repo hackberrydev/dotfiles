@@ -4,7 +4,6 @@ fish_add_path ~/go/bin
 fish_add_path ~/.local/share/pipx/venvs/ansible/bin
 
 # Plugins
-fundle plugin edc/bass
 fundle plugin pure-fish/pure
 
 fundle init
