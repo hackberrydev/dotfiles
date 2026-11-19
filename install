@@ -28,7 +28,6 @@ install_basic_packages() {
     foot \
     gh \
     git \
-    golang-go \
     htop \
     httpie \
     libmagickwand-dev \
