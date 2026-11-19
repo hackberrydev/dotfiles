@@ -186,6 +186,15 @@ setup_fish() {
     ln -sfv "$file" "${HOME}/.config/fish/${name}"
   done
 
+  local fundle_file="${fish_config_dir}/functions/fundle.fish"
+
+  if [[ ! -f "$fundle_file" ]]; then
+    echo "Install fundle"
+    mkdir -p "${fish_config_dir}/functions"
+    wget -q -O "$fundle_file" \
+      https://raw.githubusercontent.com/danhper/fundle/f4b39217e135fd209bd4e055eca8d32decdd91e0/functions/fundle.fish
+  fi
+
   fish -c "fundle install"
   fish -c fish_update_completions
 }
