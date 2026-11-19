@@ -6,12 +6,6 @@ here="$(cd "$here"; pwd)"
 
 mkdir -p "${XDG_CONFIG_HOME:=$HOME/.config}"
 
-install_submodules() {
-  echo "Installing submodules"
-  git submodule init
-  git submodule update
-}
-
 install_basic_packages() {
   echo "Download package lists"
   sudo apt-get update -q -y >/dev/null
@@ -354,7 +348,6 @@ install_marksman() {
 }
 
 do_all() {
-  install_submodules
   install_basic_packages
   install_mise
   remove_unnecessary_packages
