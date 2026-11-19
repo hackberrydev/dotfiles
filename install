@@ -32,7 +32,6 @@ install_basic_packages() {
     golang-go \
     htop \
     httpie \
-    laptop-mode-tools \
     libmagickwand-dev \
     libreadline-dev \
     libssl-dev \
@@ -45,6 +44,8 @@ install_basic_packages() {
     opensnitch \
     thunderbird \
     tidy \
+    tlp \
+    tlp-rdw \
     tmux \
     tree \
     unzip \
