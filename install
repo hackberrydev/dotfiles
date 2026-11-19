@@ -19,7 +19,6 @@ install_basic_packages() {
     bat \
     btop \
     build-essential \
-    cargo \
     curl \
     default-libmysqlclient-dev \
     deja-dup \
