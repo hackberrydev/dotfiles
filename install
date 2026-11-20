@@ -24,6 +24,7 @@ install_basic_packages() {
     default-libmysqlclient-dev \
     deja-dup \
     dnsutils \
+    exim4-daemon-light \
     fish \
     fonts-inconsolata \
     foot \
