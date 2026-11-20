@@ -1,5 +1,4 @@
 fish_add_path ~/.local/bin
-fish_add_path ~/.local/share/pipx/venvs/ansible/bin
 
 # Plugins
 fundle plugin pure-fish/pure
