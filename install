@@ -22,7 +22,6 @@ install_basic_packages() {
     dnsutils \
     exim4-daemon-light \
     fish \
-    fonts-inconsolata \
     foot \
     gh \
     git \
