@@ -13,11 +13,7 @@ install_basic_packages() {
   echo "Install basic tools"
 
   sudo apt install -y \
-    ack-grep \
     ansible \
-    aspell \
-    aspell-en \
-    bat \
     btop \
     build-essential \
     curl \
@@ -30,8 +26,6 @@ install_basic_packages() {
     foot \
     gh \
     git \
-    htop \
-    httpie \
     libmagickwand-dev \
     libreadline-dev \
     libssl-dev \
@@ -43,7 +37,6 @@ install_basic_packages() {
     ncdu \
     opensnitch \
     thunderbird \
-    tidy \
     tlp \
     tlp-rdw \
     tmux \
