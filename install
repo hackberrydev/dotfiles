@@ -14,12 +14,12 @@ install_basic_packages() {
 
   sudo apt install -y \
     ansible \
+    bind9-dnsutils \
     btop \
     build-essential \
     curl \
     default-libmysqlclient-dev \
     deja-dup \
-    dnsutils \
     exim4-daemon-light \
     fish \
     foot \
