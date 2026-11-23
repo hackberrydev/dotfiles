@@ -179,16 +179,18 @@ setup_fish() {
     ln -sfv "$file" "${HOME}/.config/fish/${name}"
   done
 
-  local fundle_file="${fish_config_dir}/functions/fundle.fish"
-
-  if [[ ! -f "$fundle_file" ]]; then
-    echo "Install fundle"
-    mkdir -p "${fish_config_dir}/functions"
-    wget -q -O "$fundle_file" \
-      https://raw.githubusercontent.com/danhper/fundle/f4b39217e135fd209bd4e055eca8d32decdd91e0/functions/fundle.fish
+  # Install the plugins listed in fish_plugins, including Fisher itself.
+  if fish -c "functions -q fisher"; then
+    fish -c "fisher update"
+  else
+    echo "Install Fisher"
+    local fisher_script
+    fisher_script="$(mktemp)"
+    wget -q -O "$fisher_script" \
+      https://raw.githubusercontent.com/jorgebucaran/fisher/4.4.8/functions/fisher.fish
+    fish -c "source '${fisher_script}'; fisher update"
+    rm "$fisher_script"
   fi
-
-  fish -c "fundle install"
   fish -c fish_update_completions
 }
 

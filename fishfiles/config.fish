@@ -1,10 +1,5 @@
 fish_add_path ~/.local/bin
 
-# Plugins
-fundle plugin pure-fish/pure
-
-fundle init
-
 # Remove the default Fish greeting
 set fish_greeting
 
