@@ -207,6 +207,19 @@ setup_helix() {
   done
 }
 
+setup_herdr() {
+  herdr_config_dir="${HOME}/.config/herdr"
+
+  echo "Configure herdr"
+
+  mkdir -p "$herdr_config_dir"
+
+  for file in "${here}/herdrfiles"/*; do
+    name="$(basename "$file")"
+    ln -sfv "$file" "${herdr_config_dir}/${name}"
+  done
+}
+
 setup_tmux() {
   echo "Setup tmux"
   if [[ ! -d ~/.tmux/plugins/tpm ]]; then
@@ -369,6 +382,7 @@ do_all() {
   install_harper
   install_claude
   install_herdr
+  setup_herdr
   install_alas
   install_nerd_font
 }
