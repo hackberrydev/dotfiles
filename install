@@ -29,17 +29,20 @@ install_basic_packages() {
     libreadline-dev \
     libssl-dev \
     libyaml-dev \
+    lm-sensors \
     mailutils \
     mailutils-pop3d \
     make \
     ncal \
     ncdu \
     opensnitch \
+    smartmontools \
     thunderbird \
     tlp \
     tlp-rdw \
     tmux \
     tree \
+    unattended-upgrades \
     unzip \
     vim \
     vlc \
