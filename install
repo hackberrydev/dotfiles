@@ -52,6 +52,15 @@ install_basic_packages() {
     >/dev/null
 }
 
+enable_unattended_upgrades() {
+  echo "Enable automatic updates"
+
+  printf '%s\n' \
+    'APT::Periodic::Update-Package-Lists "1";' \
+    'APT::Periodic::Unattended-Upgrade "1";' \
+    | sudo tee /etc/apt/apt.conf.d/20auto-upgrades >/dev/null
+}
+
 install_mise() {
   local keyring="/etc/apt/keyrings/mise-archive-keyring.asc"
 
@@ -369,6 +378,7 @@ install_marksman() {
 
 do_all() {
   install_basic_packages
+  enable_unattended_upgrades
   install_mise
   remove_unnecessary_packages
   install_local_bin
