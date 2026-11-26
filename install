@@ -61,6 +61,36 @@ enable_unattended_upgrades() {
     | sudo tee /etc/apt/apt.conf.d/20auto-upgrades >/dev/null
 }
 
+setup_backports() {
+  local codename
+  codename="$(. /etc/os-release && echo "$VERSION_CODENAME")"
+
+  echo "Set up ${codename}-backports"
+
+  # Replaces the hand-written backports.list from before this was in install.
+  sudo rm -f /etc/apt/sources.list.d/backports.list
+  printf '%s\n' \
+    'Types: deb' \
+    'URIs: http://deb.debian.org/debian' \
+    "Suites: ${codename}-backports" \
+    'Components: main contrib non-free-firmware' \
+    'Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg' \
+    | sudo tee /etc/apt/sources.list.d/debian-backports.sources >/dev/null
+  sudo apt-get update -q -y >/dev/null
+
+  # Newer kernel and firmware for recent hardware. The firmware is for this
+  # laptop's AMD graphics and Realtek Wi-Fi, Bluetooth and Ethernet. On other
+  # hardware, swap in its firmware (e.g. firmware-intel-graphics and
+  # firmware-iwlwifi on Intel). Backports updates are applied manually with
+  # apt upgrade; unattended-upgrades doesn't cover them.
+  sudo apt-get install -y -t "${codename}-backports" \
+    firmware-amd-graphics \
+    firmware-realtek \
+    linux-headers-amd64 \
+    linux-image-amd64 \
+    >/dev/null
+}
+
 install_mise() {
   local keyring="/etc/apt/keyrings/mise-archive-keyring.asc"
 
@@ -379,6 +409,7 @@ install_marksman() {
 do_all() {
   install_basic_packages
   enable_unattended_upgrades
+  setup_backports
   install_mise
   remove_unnecessary_packages
   install_local_bin
