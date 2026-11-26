@@ -42,6 +42,7 @@ install_basic_packages() {
     tlp-rdw \
     tmux \
     tree \
+    ufw \
     unattended-upgrades \
     unzip \
     vim \
@@ -59,6 +60,19 @@ enable_unattended_upgrades() {
     'APT::Periodic::Update-Package-Lists "1";' \
     'APT::Periodic::Unattended-Upgrade "1";' \
     | sudo tee /etc/apt/apt.conf.d/20auto-upgrades >/dev/null
+}
+
+setup_ufw() {
+  echo "Set up ufw"
+
+  sudo ufw default deny incoming >/dev/null
+  sudo ufw default allow outgoing >/dev/null
+  # Explicit ports, because the syncthing ufw profile only exists once
+  # Syncthing is installed.
+  sudo ufw allow 22000 comment 'Syncthing' >/dev/null
+  sudo ufw allow 21027/udp comment 'Syncthing discovery' >/dev/null
+  sudo ufw allow 5353/udp comment 'mDNS' >/dev/null
+  sudo ufw --force enable >/dev/null
 }
 
 setup_backports() {
@@ -409,6 +423,7 @@ install_marksman() {
 do_all() {
   install_basic_packages
   enable_unattended_upgrades
+  setup_ufw
   setup_backports
   install_mise
   remove_unnecessary_packages
